@@ -1,0 +1,2 @@
+import{describe,expect,it}from'vitest';import{cardImages,spreads}from'./data';
+describe('product catalog',()=>{it('contains all 78 cards',()=>expect(cardImages).toHaveLength(78));it('opens only four calibrated spreads',()=>expect(spreads.filter(x=>x.available)).toHaveLength(4));it('keeps every launch spread to three cards',()=>expect(spreads.filter(x=>x.available).every(x=>x.cards===3)).toBe(true))});
