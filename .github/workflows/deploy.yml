@@ -1,0 +1,31 @@
+name: Deploy Web
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: tarot-web-production
+  cancel-in-progress: true
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+        env:
+          VITE_API_BASE_URL: https://api.tarot.meritledger.org
+          VITE_GOOGLE_CLIENT_ID: 692705532429-bpf9eqatbp4gmsur6ae65a48280tf09m.apps.googleusercontent.com
+      - run: npx wrangler@4 pages deploy dist --project-name tarot-web --branch main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 9d2a9911ed118bef4f747712e92c4426
