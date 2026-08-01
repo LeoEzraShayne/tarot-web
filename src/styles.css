@@ -11,3 +11,5 @@
 @media (max-width:760px){.primary{font-size:14px}.accuracy-group{min-width:0;border-left:0;border-top:1px solid var(--line);padding:16px 2px 0;gap:8px;justify-content:space-between}.accuracy-label{margin-right:0}.history-records .accuracy-group label{font-size:11px;gap:4px}html[lang=zh-CN] .info h1,html[lang=zh-CN] .landing h1,html[lang=zh-CN] .results h1,html[lang=zh-CN] .reveal h1,html[lang=zh-CN] .selection h1,html[lang=zh-CN] .shuffle-page h1,html[lang=zh-CN] .spread-page h1{font-size:38px;line-height:1.3}}
 html[lang=en] .landing h1{font-size:clamp(58px,4.4vw,76px);line-height:1.06;white-space:nowrap}
 @media (max-width:760px){html[lang=en] .landing h1{font-size:40px;line-height:1.1}}
+.brand img{width:27px;height:36px;display:block;flex:0 0 auto}.brand strong{line-height:1}
+@media (max-width:760px){.brand img{width:22px;height:29px}}
