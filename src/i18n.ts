@@ -353,13 +353,13 @@ export const infoContent: Record<
     en: [
       "Privacy",
       [
-        "Questions are used to provide your reading. Anonymous readings stay in the current browser session unless you choose to save them after signing in.",
+        "Questions are used only to provide your reading. Anonymous readings stay in the current browser session. When you are signed in, completed readings are saved to your history automatically.",
       ],
     ],
     zh: [
       "隐私",
       [
-        "你的问题只用于生成本次解读。匿名解读保留在当前浏览器会话中；只有登录并主动保存后，才会进入历史记录。",
+        "你的问题只用于生成本次解读。匿名解读只保留在当前浏览器会话中；登录后，完成的解读会自动保存到你的解读记录。",
       ],
     ],
   },
