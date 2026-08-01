@@ -130,15 +130,25 @@ const spreadZh: Record<string, [string, string[]]> = {
   ],
   "work-direction": ["工作与方向", ["当前现实", "阻力", "务实的下一步"]],
   "decision-clarity": ["决策澄清", ["重要因素", "复杂因素", "下一步"]],
-  "daily-reflection": ["每日一牌", []],
+  "daily-reflection": ["每日一牌", ["今日焦点"]],
   "single-focus": ["一张牌反思", ["当前焦点"]],
   "past-present-next": [
     "过去、现在与下一步",
     ["过去的影响", "当前现实", "下一步发展"],
   ],
   "mind-body-spirit": ["心智、身体与精神", ["心智", "身体与现实", "内在精神"]],
-  "creative-block": ["创作阻碍", []],
-  "relationship-check-in": ["关系检视", []],
+  "creative-block": ["创作阻碍", ["火花", "阻碍", "实验"]],
+  "relationship-check-in": [
+    "关系检视",
+    [
+      "你的视角",
+      "可观察的互动",
+      "未表达的需要",
+      "需要尊重的边界",
+      "可用的支持",
+      "健康的下一步",
+    ],
+  ],
   "whole-self": [
     "六张牌深度反思",
     [
@@ -150,7 +160,17 @@ const spreadZh: Record<string, [string, string[]]> = {
       "务实的下一步",
     ],
   ],
-  "seasonal-review": ["阶段回顾", []],
+  "seasonal-review": [
+    "阶段回顾",
+    [
+      "正在结束的事",
+      "仍会留下的事",
+      "值得带走的经验",
+      "可用的资源",
+      "想要确立的意图",
+      "务实的下一步",
+    ],
+  ],
   "celtic-cross-classic": [
     "凯尔特十字",
     [
@@ -166,7 +186,21 @@ const spreadZh: Record<string, [string, string[]]> = {
       "整体方向",
     ],
   ],
-  "celtic-cross-reflective": ["反思型凯尔特十字", []],
+  "celtic-cross-reflective": [
+    "反思型凯尔特十字",
+    [
+      "当前觉察",
+      "核心张力",
+      "深层模式",
+      "正在退去的影响",
+      "浮现的可能",
+      "近期练习",
+      "你的立场",
+      "周围环境",
+      "希望与顾虑",
+      "反思方向",
+    ],
+  ],
 };
 export const localizeSpread = (spread: Spread, locale: Locale): Spread => {
   if (locale === "en") return spread;
