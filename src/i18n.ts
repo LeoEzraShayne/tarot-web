@@ -11,6 +11,7 @@ export const pathForLocale = (path: string, locale: Locale) =>
 
 const zh = {
   Readings: "解读",
+  "Reading history": "解读记录",
   "Card Meanings": "牌义",
   Learn: "了解塔罗",
   "Sign in": "登录",
