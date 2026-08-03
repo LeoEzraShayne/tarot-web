@@ -6,7 +6,7 @@
   src: url("/assets/fonts/lxgw-wenkai-ritual-500.woff2") format("woff2");
 }
 html[lang="zh-CN"] {
-  --ritual: "LXGW WenKai Ritual", "Kaiti SC", serif;
+  --ritual: "Ma Shan Zheng", "LXGW WenKai Ritual", "Kaiti SC", serif;
   --reading: "Noto Serif SC", "Songti SC", serif;
   --sans: "DM Sans", "PingFang SC", sans-serif;
 }
@@ -2121,8 +2121,8 @@ html[lang="zh-CN"] .selection h1,
 html[lang="zh-CN"] .reveal h1,
 html[lang="zh-CN"] .results h1 {
   font-family: var(--ritual);
-  line-height: 1.32;
-  letter-spacing: 0.015em;
+  line-height: 1.38;
+  letter-spacing: 0.035em;
 }
 
 @keyframes question-focus {
