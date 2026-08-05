@@ -2382,14 +2382,32 @@ html[lang="en"] .landing h1 {
   margin-bottom: 10px;
 }
 .context-folio textarea {
+  --context-rule-step: 36px;
+  --context-rule: rgba(44, 72, 66, 0.16);
   width: 100%;
   resize: vertical;
   border: 0;
   border-block: 1px solid var(--line);
   outline: 0;
-  background: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.12);
+  background-image:
+    linear-gradient(var(--context-rule), var(--context-rule)),
+    linear-gradient(var(--context-rule), var(--context-rule)),
+    linear-gradient(var(--context-rule), var(--context-rule)),
+    linear-gradient(var(--context-rule), var(--context-rule)),
+    linear-gradient(var(--context-rule), var(--context-rule)),
+    linear-gradient(var(--context-rule), var(--context-rule));
+  background-position:
+    0 51px,
+    0 87px,
+    0 123px,
+    0 159px,
+    0 195px,
+    0 231px;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
   padding: 20px 55px 20px 2px;
-  font: 20px/1.8 var(--reading);
+  font: 20px / var(--context-rule-step) var(--reading);
 }
 .context-folio label small {
   position: absolute;
