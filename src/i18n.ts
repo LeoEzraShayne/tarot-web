@@ -38,14 +38,14 @@ const zh = {
   Terms: "条款",
   "Reflection over certainty": "重视反思，而非确定答案",
   "A QUIET SPACE FOR REFLECTION": "一个安静的自我反思空间",
-  "What would you like": "你想看清",
-  "clarity on?": "什么问题？",
+  "What would you like": "此刻你最想看清的",
+  "clarity on?": "是什么问题？",
   "Ask an open question about what you can understand, influence, or approach differently.":
-    "提出一个开放式问题，关注你能够理解、影响或换一种方式面对的事情。",
+    "写下一个此刻真正困扰你的开放式问题。把注意力放在你能够理解、影响或改变的部分。",
   "Your question": "你的问题",
-  "Begin Your Reading": "开始解读",
+  "Begin Your Reading": "开始这次解读",
   "For reflection, not prediction. Your choices remain your own.":
-    "用于反思，而非预测。选择权始终属于你。",
+    "这是一场用于反思的阅读，而非对未来的断言。选择始终属于你。",
   "How it works": "如何使用",
   "Ask, choose a spread, then select your own cards.":
     "提出问题、选择牌阵，再亲手选出需要的牌。",
