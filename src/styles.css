@@ -1419,8 +1419,8 @@ header nav button,
 }
 .landing label small {
   bottom: 5px;
-  padding-left: 9px;
-  background: rgba(247, 242, 226, 0.88);
+  padding-left: 0;
+  background: transparent;
 }
 .landing .primary {
   min-width: 315px;
