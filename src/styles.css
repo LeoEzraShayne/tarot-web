@@ -3413,3 +3413,39 @@ html[lang="zh-CN"] .landing h1 {
     opacity: 1;
   }
 }
+
+/* Two-font hierarchy: Xiaowei for short ritual headings, Noto Serif for reading. */
+.landing h1,
+.home-blocks h2,
+.context-folio h1,
+.spread-page h1,
+.spread-group > h2,
+.spread-grid h3,
+.shuffle-page h1,
+.selection h1,
+.select-head > strong,
+.slots button b,
+.reveal h1,
+.reveal article h2,
+.results h1,
+.reading-groups h2,
+.overview h2,
+.thread h2,
+.meaning h2,
+.meaning h3,
+.closing h2,
+.reflection-close h2,
+.info h1,
+.modal h2,
+.history-title h1,
+.history-head h3,
+.ritual-question .mystic-question,
+.ritual-reading h2,
+.diagram-position,
+.diagram-keyword strong {
+  font-family: var(--display);
+}
+
+.spread-group > h2 {
+  font-style: normal;
+}
