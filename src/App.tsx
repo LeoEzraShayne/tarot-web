@@ -526,7 +526,13 @@ function Header({
       {" "}
       <a className="brand" href={pathForLocale("/", locale)}>
         {" "}
-        <span aria-hidden="true">✦</span>{" "}
+        <img
+          className="brand-emblem"
+          src="/assets/tarot-emblem.svg"
+          alt=""
+          aria-hidden="true"
+        />{" "}
+        <i aria-hidden="true">◆</i>{" "}
         <img
           className="brand-wordmark"
           src="/assets/brand-wordmark.svg"
@@ -1039,6 +1045,135 @@ function soundQuiet() {
     lastLift = Date.now();
   }
 }
+
+type DiagramMode = "ritual" | "result";
+
+function diagramGroups(cards: RevealedCard[]) {
+  if (cards.length === 10) return [cards.slice(0, 6), cards.slice(6)];
+  if (cards.length === 6) return [cards.slice(0, 3), cards.slice(3)];
+  return [cards];
+}
+
+function DiagramBranches({ count }: { count: number }) {
+  return (
+    <svg
+      className="diagram-branches"
+      viewBox="0 0 1000 118"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      {Array.from({ length: count }, (_, index) => {
+        const x = ((index + 0.5) * 1000) / count;
+        return (
+          <path
+            key={x}
+            d={`M ${x} 0 V 28 Q ${x} 70 500 76 V 112`}
+            pathLength="1"
+          />
+        );
+      })}
+      <path className="diagram-branch-stem" d="M 500 76 V 118" />
+      <circle cx="500" cy="76" r="6" />
+      <path className="diagram-branch-diamond" d="M500 68l8 8-8 8-8-8Z" />
+    </svg>
+  );
+}
+
+function diagramGroupLabel(
+  total: number,
+  groupIndex: number,
+  locale: Locale,
+) {
+  if (total === 10) {
+    if (locale === "zh-CN")
+      return groupIndex === 0 ? "核心十字" : "观察支柱";
+    return groupIndex === 0 ? "THE INNER CROSS" : "THE OUTER PILLAR";
+  }
+  if (total === 6) return groupIndex === 0 ? "I" : "II";
+  return "";
+}
+
+function ReadingDiagram({
+  cards,
+  reading,
+  locale,
+  mode,
+}: {
+  cards: RevealedCard[];
+  reading: Interpretation | null;
+  locale: Locale;
+  mode: DiagramMode;
+}) {
+  const groups = diagramGroups(cards);
+  const keywordFor = (card: RevealedCard) => {
+    const section = reading?.sections.find(
+      (item) =>
+        item.cardId === card.cardId && item.position === card.position,
+    );
+    return section?.keywords?.slice(0, 2).join(" · ") || "";
+  };
+
+  return (
+    <div
+      className={`reading-diagram mode-${mode} count-${cards.length} ${
+        reading ? "has-keywords" : "is-gathering"
+      }`}
+    >
+      <div className={`diagram-groups groups-${groups.length}`}>
+        {groups.map((group, groupIndex) => {
+          const label = diagramGroupLabel(cards.length, groupIndex, locale);
+          return (
+            <section
+              className={`diagram-group group-${groupIndex + 1} size-${group.length}`}
+              key={`${cards.length}-${groupIndex}`}
+            >
+              {label && <p className="diagram-group-label">{label}</p>}
+              <div className="diagram-card-row">
+                {group.map((card, index) => {
+                  const keyword = keywordFor(card);
+                  return (
+                    <article
+                      key={`${card.positionId}-${card.cardId}`}
+                      style={
+                        {
+                          "--diagram-index": groupIndex * 6 + index,
+                          "--diagram-delay": `${
+                            (groupIndex * 6 + index) * 90
+                          }ms`,
+                        } as CSSProperties
+                      }
+                    >
+                      <div className="diagram-position">
+                        <span>{card.position}</span>
+                        <i aria-hidden="true">◆</i>
+                      </div>
+                      <img
+                        className={
+                          card.orientation === "reversed" ? "reversed" : ""
+                        }
+                        src={cardImages[Number(card.cardId)]}
+                        alt={`${card.cardName}, ${text(locale, card.orientation)}`}
+                      />
+                      <div className="diagram-keyword">
+                        <i aria-hidden="true">◆</i>
+                        <strong>{keyword || "\u00a0"}</strong>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+              <DiagramBranches count={group.length} />
+            </section>
+          );
+        })}
+      </div>
+      <div className="diagram-root" aria-hidden="true">
+        <img src="/assets/ritual-flourish.svg" alt="" />
+      </div>
+    </div>
+  );
+}
+
 function Reveal({ cards, locale }: { cards: RevealedCard[]; locale: Locale }) {
   const t = (v: string) => text(locale, v);
   return (
@@ -1103,46 +1238,51 @@ function InterpretationRitual({
   }, []);
   const zh = locale === "zh-CN";
   return (
-    <section className="interpretation-ritual" aria-busy={!reading}>
+    <section
+      className={`interpretation-ritual count-${cards.length} ${
+        reading ? "is-ready" : ""
+      }`}
+      aria-busy={!reading}
+    >
       <div className="ritual-question">
-        <span>01 · {zh ? "你的问题" : "YOUR QUESTION"}</span>
-        <h1>{question}</h1>
+        <span>◆ {zh ? "你的问题" : "YOUR QUESTION"} ◆</span>
+        <h1 className="mystic-question">{question}</h1>
       </div>
-      <div className={`ritual-cards count-${cards.length}`}>
-        {cards.map((card, index) => (
-          <article
-            key={`${card.positionId}-${card.cardId}`}
-            style={{ "--ritual-index": index } as CSSProperties}
-          >
-            <span>{card.position}</span>
-            <img
-              className={card.orientation === "reversed" ? "reversed" : ""}
-              src={cardImages[Number(card.cardId)]}
-              alt={`${card.cardName}, ${zh ? text(locale, card.orientation) : card.orientation}`}
-            />
-            <strong>{card.cardName}</strong>
-          </article>
-        ))}
+      <div className="ritual-tableau">
+        <div className="ritual-tableau-heading">
+          <img src="/assets/tarot-emblem.svg" alt="" aria-hidden="true" />
+          <span>
+            02 · {zh ? "牌面建立联系" : "THE CARDS FIND THEIR THREAD"}
+          </span>
+        </div>
+        <ReadingDiagram
+          cards={cards}
+          reading={reading}
+          locale={locale}
+          mode="ritual"
+        />
       </div>
       <div className={`ritual-reading ${reading ? "is-ready" : ""}`}>
-        <span>
-          03 · {zh ? "牌面之间的线索" : "THE THREAD BETWEEN THE CARDS"}
-        </span>
-        <h2>
-          {reading?.headline ||
-            (zh
-              ? "正在整理牌面之间的线索……"
-              : "The thread is still taking shape…")}
-        </h2>
-        {reading ? (
-          <p>{reading.synthesis}</p>
-        ) : (
-          <div className="quiet-lines" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </div>
-        )}
+        <div className="ritual-reading-copy">
+          <span>
+            03 · {zh ? "牌面之间的线索" : "THE THREAD BETWEEN THE CARDS"}
+          </span>
+          <h2>
+            {reading?.headline ||
+              (zh
+                ? "正在整理牌面之间的线索……"
+                : "The thread is still taking shape…")}
+          </h2>
+          {reading ? (
+            <p>{reading.synthesis}</p>
+          ) : (
+            <div className="quiet-lines" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </div>
+          )}
+        </div>
       </div>
       {showSkip && (
         <button className="skip-ritual" onClick={skip}>
@@ -1189,21 +1329,12 @@ function Results({
           {restartLabel || t("New reading")}{" "}
         </button>{" "}
       </div>{" "}
-      <div className={`overview count-${cards.length}`}>
-        {" "}
-        {cards.map((c) => (
-          <article key={`${c.positionId}-${c.cardId}`}>
-            {" "}
-            <span>{c.position}</span>{" "}
-            <img
-              className={c.orientation === "reversed" ? "reversed" : ""}
-              src={cardImages[Number(c.cardId)]}
-              alt={`${c.cardName}, ${t(c.orientation)}`}
-            />{" "}
-            <h2>{c.cardName}</h2> <p>{t(c.orientation)}</p>{" "}
-          </article>
-        ))}{" "}
-      </div>{" "}
+      <ReadingDiagram
+        cards={cards}
+        reading={reading}
+        locale={locale}
+        mode="result"
+      />{" "}
       <div className="thread">
         {" "}
         <p className="eyebrow">

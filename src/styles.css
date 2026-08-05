@@ -2689,3 +2689,608 @@ html[lang="zh-CN"] .landing .lede {
     margin-inline: auto;
   }
 }
+
+/* Folio ritual system: ink-gathered titles, tarot emblem, and traceable diagrams. */
+.brand::before {
+  display: none;
+}
+.brand .brand-emblem {
+  width: 34px;
+  height: 38px;
+  flex: 0 0 auto;
+}
+.brand > i {
+  color: var(--terra);
+  font-style: normal;
+  font-size: 7px;
+  margin-inline: -2px 1px;
+}
+
+.landing h1 {
+  --title-tracking: 0.012em;
+  position: relative;
+  letter-spacing: var(--title-tracking);
+  text-shadow:
+    0.35px 0 rgba(38, 61, 60, 0.2),
+    -0.25px 0.35px rgba(126, 75, 43, 0.1);
+  animation: mystic-title-gather 1.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+html[lang="zh-CN"] .landing h1 {
+  --title-tracking: 0.004em;
+  letter-spacing: var(--title-tracking);
+}
+.landing h1 em {
+  position: relative;
+  display: inline-block;
+  padding-left: 25px;
+}
+.landing h1 em::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0.18em;
+  bottom: 0.14em;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(136, 71, 47, 0.82) 18%,
+    rgba(136, 71, 47, 0.82) 82%,
+    transparent
+  );
+}
+.landing h1 em::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 48%;
+  width: 6px;
+  height: 6px;
+  background: var(--terra);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+@keyframes mystic-title-gather {
+  from {
+    opacity: 0.24;
+    filter: blur(7px);
+    letter-spacing: 0.075em;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    letter-spacing: var(--title-tracking);
+    transform: none;
+  }
+}
+
+.reading-diagram {
+  --diagram-stroke: rgba(145, 103, 55, 0.72);
+  width: min(1120px, 100%);
+  margin-inline: auto;
+  color: var(--ink);
+}
+.diagram-groups {
+  position: relative;
+  display: grid;
+  gap: clamp(30px, 4vw, 64px);
+  align-items: start;
+}
+.diagram-groups.groups-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.reading-diagram.count-10 .diagram-groups.groups-2 {
+  grid-template-columns: minmax(0, 1.42fr) minmax(0, 0.96fr);
+}
+.diagram-group {
+  min-width: 0;
+  text-align: center;
+}
+.diagram-group-label {
+  min-height: 20px;
+  margin: 0 0 12px;
+  color: var(--gold);
+  font: 400 10px var(--body);
+  letter-spacing: 0.2em;
+}
+.diagram-card-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: clamp(12px, 2vw, 28px);
+  align-items: start;
+}
+.diagram-card-row article {
+  min-width: 0;
+  text-align: center;
+}
+.diagram-position {
+  min-height: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: #75512e;
+  font: 400 clamp(10px, 1vw, 13px) var(--display);
+  letter-spacing: 0.14em;
+}
+.diagram-position span {
+  min-height: 2.6em;
+  display: grid;
+  place-items: end center;
+  line-height: 1.3;
+}
+.diagram-position i,
+.diagram-keyword > i {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--gold);
+  font-style: normal;
+  font-size: 6px;
+  line-height: 1;
+}
+.diagram-position i::before,
+.diagram-position i::after,
+.diagram-keyword > i::before,
+.diagram-keyword > i::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(145, 103, 55, 0.52)
+  );
+}
+.diagram-position i::after,
+.diagram-keyword > i::after {
+  transform: scaleX(-1);
+}
+.diagram-card-row article > img {
+  display: block;
+  width: 100%;
+  max-width: 175px;
+  margin: 11px auto 0;
+  border: 1px solid rgba(112, 78, 39, 0.42);
+  border-radius: 5px;
+  background: rgba(248, 243, 228, 0.7);
+  box-shadow:
+    0 13px 18px rgba(56, 56, 42, 0.14),
+    0 0 0 5px rgba(250, 246, 233, 0.44);
+}
+.reading-diagram.count-6 .diagram-card-row article > img,
+.reading-diagram.count-10 .diagram-card-row article > img {
+  max-width: 118px;
+}
+.diagram-keyword {
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.diagram-keyword strong {
+  display: block;
+  min-height: 2.7em;
+  margin-top: 10px;
+  color: var(--ink);
+  font: 400 clamp(13px, 1.2vw, 18px)/1.35 var(--display);
+  letter-spacing: 0.08em;
+}
+.reading-diagram.count-6 .diagram-keyword strong,
+.reading-diagram.count-10 .diagram-keyword strong {
+  font-size: 13px;
+}
+.reading-diagram.is-gathering .diagram-keyword strong {
+  opacity: 0.28;
+}
+.diagram-branches {
+  display: block;
+  width: 100%;
+  height: 84px;
+  overflow: visible;
+  fill: none;
+  stroke: var(--diagram-stroke);
+  stroke-width: 1.15;
+  vector-effect: non-scaling-stroke;
+}
+.diagram-branches circle,
+.diagram-branches .diagram-branch-diamond {
+  fill: #eee1bd;
+  stroke: #9a743f;
+}
+.diagram-root {
+  width: min(360px, 43%);
+  margin: -8px auto 0;
+}
+.diagram-root img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.diagram-groups.groups-2::after {
+  content: "";
+  position: absolute;
+  left: 24%;
+  right: 20%;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(145, 103, 55, 0.55) 18%,
+    rgba(145, 103, 55, 0.55) 82%,
+    transparent
+  );
+}
+
+.mode-result {
+  width: min(1240px, calc(100% - 36px));
+  margin: 28px auto 82px;
+  padding: 42px clamp(24px, 4vw, 56px) 28px;
+  border-block: 1px solid rgba(145, 103, 55, 0.3);
+  background: rgba(250, 246, 233, 0.19);
+  animation: diagram-result-arrive 0.8s ease both;
+}
+.mode-result.count-1 {
+  width: min(470px, calc(100% - 36px));
+}
+.mode-result.count-3 {
+  width: min(820px, calc(100% - 36px));
+}
+
+@keyframes diagram-result-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The interpretation is one continuous camera: question, diagram, reading. */
+.interpretation-ritual {
+  min-height: calc(100svh - 78px);
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(255, 252, 232, 0.72), transparent 34%),
+    linear-gradient(110deg, rgba(246, 240, 224, 0.9), rgba(223, 230, 220, 0.82));
+}
+.interpretation-ritual::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  pointer-events: none;
+  border: 1px solid rgba(145, 103, 55, 0.34);
+  box-shadow: inset 0 0 0 7px rgba(250, 246, 233, 0.22);
+}
+.interpretation-ritual > .ritual-question,
+.interpretation-ritual > .ritual-tableau,
+.interpretation-ritual > .ritual-reading {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  padding: clamp(58px, 7vh, 88px) clamp(54px, 7vw, 110px);
+  border: 0;
+}
+.ritual-question {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  animation: ritual-question-chapter 2.25s ease both;
+}
+.interpretation-ritual span {
+  color: var(--gold);
+  font: 400 10px var(--body);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.ritual-question::after {
+  display: none;
+}
+.ritual-question .mystic-question {
+  --title-tracking: 0.018em;
+  max-width: 1000px;
+  margin: 32px auto 0;
+  font-family: var(--display);
+  font-size: clamp(48px, 5vw, 78px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: var(--title-tracking);
+  text-shadow:
+    0.4px 0 rgba(38, 61, 60, 0.2),
+    -0.25px 0.35px rgba(126, 75, 43, 0.12);
+  animation: mystic-title-gather 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.ritual-tableau {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  animation: ritual-tableau-chapter 4.85s 2.1s ease both;
+}
+.ritual-tableau-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 8px;
+}
+.ritual-tableau-heading img {
+  width: 30px;
+  height: 34px;
+}
+.mode-ritual {
+  width: min(1080px, calc(100% - 40px));
+}
+.mode-ritual .diagram-position,
+.mode-ritual .diagram-keyword {
+  opacity: 0;
+  animation: diagram-label-arrive 0.7s calc(2.75s + var(--diagram-delay)) forwards;
+}
+.mode-ritual .diagram-card-row article > img {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: diagram-card-arrive 0.72s calc(2.35s + var(--diagram-delay)) forwards;
+}
+.mode-ritual .diagram-branches path:not(.diagram-branch-diamond),
+.mode-ritual .diagram-branches circle,
+.mode-ritual .diagram-branch-diamond {
+  opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: diagram-line-grow 1.15s 4.8s ease forwards;
+}
+.mode-ritual .diagram-root {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: diagram-flourish-arrive 0.9s 5.45s ease forwards;
+}
+.ritual-reading {
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  background: rgba(247, 242, 228, 0.76);
+  animation: ritual-reading-chapter 1.35s 6.65s ease forwards;
+}
+.ritual-reading-copy {
+  width: min(900px, 100%);
+  padding-left: clamp(28px, 4vw, 58px);
+  border-left: 1px solid rgba(136, 71, 47, 0.64);
+  position: relative;
+}
+.ritual-reading-copy::before {
+  content: "◆";
+  position: absolute;
+  left: -4px;
+  top: 42%;
+  color: var(--terra);
+  font-size: 8px;
+  transform: translateY(-50%);
+}
+.ritual-reading h2 {
+  margin: 25px 0 20px;
+  color: var(--ink);
+  font: 400 clamp(42px, 4.4vw, 68px)/1.35 var(--display);
+  text-shadow: 0.35px 0 rgba(38, 61, 60, 0.18);
+}
+.ritual-reading p {
+  max-width: 820px;
+  margin: 0;
+  color: #405653;
+  font: 400 18px/1.9 var(--body);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+@keyframes ritual-question-chapter {
+  0% { opacity: 0; }
+  14%, 76% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-12px); }
+}
+@keyframes ritual-tableau-chapter {
+  0% { opacity: 0; transform: translateY(20px); }
+  10%, 86% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: scale(0.985); }
+}
+@keyframes ritual-reading-chapter {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes diagram-card-arrive {
+  to { opacity: 1; transform: none; }
+}
+@keyframes diagram-label-arrive {
+  from { opacity: 0; filter: blur(3px); }
+  to { opacity: 1; filter: blur(0); }
+}
+@keyframes diagram-line-grow {
+  to { opacity: 1; stroke-dashoffset: 0; }
+}
+@keyframes diagram-flourish-arrive {
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 760px) {
+  .brand .brand-emblem {
+    width: 28px;
+    height: 32px;
+  }
+  .brand > i {
+    font-size: 6px;
+  }
+  .landing h1 em {
+    padding-left: 17px;
+  }
+  .landing h1 em::before {
+    left: 5px;
+  }
+  .landing h1 em::after {
+    left: 2px;
+  }
+  html[lang="zh-CN"] .landing h1 {
+    --title-tracking: 0;
+    letter-spacing: var(--title-tracking);
+  }
+  .interpretation-ritual {
+    min-height: calc(100svh - 68px);
+  }
+  .interpretation-ritual::before {
+    inset: 10px;
+  }
+  .interpretation-ritual > .ritual-question,
+  .interpretation-ritual > .ritual-tableau,
+  .interpretation-ritual > .ritual-reading {
+    min-height: 0;
+    padding: 54px 20px 46px;
+    border: 0;
+  }
+  .ritual-question .mystic-question {
+    font-size: 40px;
+    line-height: 1.45;
+  }
+  .ritual-tableau-heading {
+    margin-bottom: 4px;
+  }
+  .ritual-tableau-heading img {
+    width: 24px;
+    height: 28px;
+  }
+  .mode-ritual {
+    width: 100%;
+  }
+  .diagram-groups,
+  .diagram-groups.groups-2,
+  .reading-diagram.count-10 .diagram-groups.groups-2 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .diagram-group-label {
+    margin-bottom: 5px;
+  }
+  .diagram-card-row {
+    gap: 8px;
+  }
+  .diagram-position {
+    min-height: 48px;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+  .diagram-position span {
+    min-height: 2.5em;
+  }
+  .diagram-card-row article > img {
+    max-width: 88px;
+    margin-top: 7px;
+    border-radius: 3px;
+    box-shadow:
+      0 8px 11px rgba(56, 56, 42, 0.13),
+      0 0 0 3px rgba(250, 246, 233, 0.4);
+  }
+  .reading-diagram.count-6 .diagram-card-row article > img,
+  .reading-diagram.count-10 .diagram-card-row article > img {
+    max-width: 62px;
+  }
+  .diagram-keyword {
+    min-height: 48px;
+  }
+  .diagram-keyword strong,
+  .reading-diagram.count-6 .diagram-keyword strong,
+  .reading-diagram.count-10 .diagram-keyword strong {
+    min-height: 2.3em;
+    margin-top: 6px;
+    font-size: 11px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+  }
+  .diagram-branches {
+    height: 52px;
+  }
+  .diagram-root {
+    width: min(235px, 62%);
+    margin-top: -7px;
+  }
+  .mode-ritual.count-6 .diagram-root,
+  .mode-ritual.count-10 .diagram-root {
+    display: none;
+  }
+  .mode-ritual.count-6 .diagram-branches,
+  .mode-ritual.count-10 .diagram-branches {
+    height: 28px;
+  }
+  .mode-result {
+    width: calc(100% - 20px);
+    margin: 20px auto 54px;
+    padding: 30px 15px 20px;
+  }
+  .mode-result.count-6 .diagram-card-row,
+  .mode-result.count-10 .diagram-card-row {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 14px;
+  }
+  .mode-result.count-6 .diagram-card-row article > img,
+  .mode-result.count-10 .diagram-card-row article > img {
+    max-width: 118px;
+  }
+  .mode-result.count-6 .diagram-branches path:not(.diagram-branch-stem),
+  .mode-result.count-10 .diagram-branches path:not(.diagram-branch-stem),
+  .mode-result.count-6 .diagram-branches circle,
+  .mode-result.count-10 .diagram-branches circle {
+    display: none;
+  }
+  .ritual-reading-copy {
+    padding-left: 24px;
+  }
+  .ritual-reading h2 {
+    font-size: 38px;
+    line-height: 1.4;
+  }
+  .ritual-reading p {
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-line-clamp: 4;
+  }
+  html[lang="zh-CN"] .results h1 {
+    font-size: 32px;
+    line-height: 1.42;
+    letter-spacing: 0.01em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing h1,
+  .ritual-question,
+  .ritual-question .mystic-question,
+  .ritual-tableau,
+  .ritual-reading,
+  .mode-ritual .diagram-position,
+  .mode-ritual .diagram-keyword,
+  .mode-ritual .diagram-card-row article > img,
+  .mode-ritual .diagram-branches path,
+  .mode-ritual .diagram-branches circle,
+  .mode-ritual .diagram-root,
+  .mode-result {
+    animation-duration: 0.25s;
+    animation-delay: 0s;
+    filter: none;
+  }
+  .ritual-question {
+    opacity: 0;
+  }
+  .ritual-tableau {
+    opacity: 0;
+  }
+  .ritual-reading {
+    opacity: 1;
+  }
+}
