@@ -1393,17 +1393,34 @@ header nav button,
 .landing label {
   max-width: 600px;
   margin-top: 30px;
+  border-bottom: 0;
 }
 .landing textarea {
-  min-height: 105px;
+  --writing-line: 48px;
+  min-height: 104px;
+  padding-top: 8px;
+  padding-bottom: 0;
   font-family: var(--body);
   font-style: normal;
   font-size: 24px;
-  line-height: 1.55;
+  line-height: var(--writing-line);
   color: var(--ink);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--writing-line) - 1px),
+    rgba(126, 94, 53, 0.42) calc(var(--writing-line) - 1px),
+    rgba(126, 94, 53, 0.42) var(--writing-line)
+  );
+  background-position: 0 8px;
 }
 .landing textarea::placeholder {
-  color: rgba(54, 70, 67, 0.6);
+  color: transparent;
+}
+.landing label small {
+  bottom: 5px;
+  padding-left: 9px;
+  background: rgba(247, 242, 226, 0.88);
 }
 .landing .primary {
   min-width: 315px;
@@ -1549,10 +1566,11 @@ header nav button,
     margin-top: 28px;
   }
   .landing textarea {
-    min-height: 98px;
+    --writing-line: 44px;
+    min-height: 96px;
     padding-right: 38px;
     font-size: 20px;
-    line-height: 1.55;
+    line-height: var(--writing-line);
   }
   .landing .primary {
     width: min(100%, 320px);

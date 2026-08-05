@@ -7,7 +7,6 @@ import type { Interpretation, RevealedCard, Spread, Stage } from "./types";
 import {
   barePath,
   infoContent,
-  initialQuestion,
   localeFromPath,
   localizeSpread,
   pathForLocale,
@@ -627,9 +626,9 @@ function Landing({
             {" "}
             <span>{t("Your question")}</span>{" "}
             <textarea
-              rows={3}
+              rows={2}
               maxLength={200}
-              placeholder={initialQuestion(locale)}
+              placeholder=""
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
             />{" "}
