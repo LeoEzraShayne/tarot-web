@@ -885,6 +885,64 @@ main {
 .info .primary {
   margin-top: 30px;
 }
+.info-folio-type {
+  width: min(900px, calc(100% - 48px));
+  max-width: none;
+  padding-top: clamp(76px, 11vh, 118px);
+  padding-bottom: clamp(84px, 12vh, 128px);
+}
+.info-folio-type .eyebrow {
+  margin-bottom: 22px;
+  font-family: var(--body);
+  letter-spacing: 0.22em;
+}
+.info-folio-type h1 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 42px;
+  padding-bottom: 30px;
+  font-family: var(--display);
+  font-size: clamp(58px, 5.4vw, 78px);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: 0.018em;
+  text-shadow:
+    0.35px 0 rgba(38, 61, 60, 0.2),
+    -0.25px 0.35px rgba(126, 75, 43, 0.1);
+}
+.info-folio-type h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(330px, 82%);
+  height: 7px;
+  background:
+    linear-gradient(var(--gold), var(--gold)) left center / calc(50% - 9px)
+      1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right center / calc(50% - 9px)
+      1px no-repeat,
+    linear-gradient(45deg, transparent 42%, var(--gold) 43% 57%, transparent 58%)
+      center / 7px 7px no-repeat;
+  opacity: 0.58;
+}
+.info-folio-type > p:not(.eyebrow) {
+  max-width: 790px;
+  margin: 0;
+  font-family: var(--body);
+  font-size: clamp(19px, 1.55vw, 22px);
+  font-weight: 400;
+  line-height: 1.92;
+  letter-spacing: 0.012em;
+  text-wrap: pretty;
+}
+.info-folio-type > p:not(.eyebrow) + p {
+  margin-top: 22px;
+}
+.info-folio-type .primary {
+  margin-top: 42px;
+}
 .modal {
   position: fixed;
   inset: 0;
@@ -1249,6 +1307,36 @@ footer em {
   }
   .info h1 {
     font-size: 52px;
+  }
+  .info-folio-type {
+    width: min(100% - 32px, 900px);
+    padding: 64px 8px 82px;
+  }
+  .info-folio-type .eyebrow {
+    margin-bottom: 18px;
+    letter-spacing: 0.17em;
+  }
+  .info-folio-type h1 {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    font-size: clamp(42px, 13vw, 54px);
+    line-height: 1.25;
+    letter-spacing: 0.012em;
+  }
+  .info-folio-type h1::after {
+    width: min(270px, 88%);
+  }
+  .info-folio-type > p:not(.eyebrow) {
+    font-size: 18px;
+    line-height: 1.92;
+    letter-spacing: 0.01em;
+  }
+  .info-folio-type > p:not(.eyebrow) + p {
+    margin-top: 20px;
+  }
+  .info-folio-type .primary {
+    width: 100%;
+    margin-top: 36px;
   }
   footer {
     padding: 0 18px;

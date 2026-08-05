@@ -1759,6 +1759,11 @@ function InfoPage({
 }) {
   const t = (v: string) => text(locale, v),
     entry = infoContent[route],
+    usesFolioTypography = [
+      "/learn/how-tarot-works",
+      "/about/accuracy",
+      "/cards",
+    ].includes(route),
     content: [string, string[]] = entry
       ? locale === "zh-CN"
         ? entry.zh
@@ -1779,7 +1784,9 @@ function InfoPage({
       />{" "}
       <main>
         {" "}
-        <article className="info">
+        <article
+          className={`info${usesFolioTypography ? " info-folio-type" : ""}`}
+        >
           {" "}
           <p className="eyebrow">{t("TAROT · LEARN")}</p> <h1>{content[0]}</h1>{" "}
           {content[1].map((p) => (
