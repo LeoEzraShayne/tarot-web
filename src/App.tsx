@@ -822,7 +822,7 @@ function SpreadPicker({
                         : "COMING LATER",
                     )}{" "}
                   </span>{" "}
-                  <div className="backs">
+                  <div className={`backs count-${s.cards}`}>
                     {" "}
                     {Array.from({ length: s.cards }, (_, i) => (
                       <img key={i} src={back} alt="" />

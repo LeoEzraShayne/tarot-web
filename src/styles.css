@@ -377,11 +377,24 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 6px;
 }
 .backs img {
   width: 38px;
-  margin-left: -14px;
+  margin-left: 0;
   border-radius: 2px;
+}
+.backs.count-6 {
+  gap: 4px;
+}
+.backs.count-6 img {
+  width: 31px;
+}
+.backs.count-10 {
+  gap: 3px;
+}
+.backs.count-10 img {
+  width: 24px;
 }
 .spread-grid h3 {
   font: 400 29px var(--serif);
