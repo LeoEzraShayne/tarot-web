@@ -180,12 +180,18 @@ export function App() {
     const a = play(n, v);
     activeAudio.current.push(a);
   };
-  const begin = () => {
+  const begin = async () => {
     if (question.trim().length < 8)
       return setError(
         t("Write a little more so the cards have a clear question."),
       );
     setError("");
+    if (document.fonts?.load) {
+      await Promise.race([
+        document.fonts.load('48px "ZCOOL XiaoWei"', question),
+        wait(1200),
+      ]);
+    }
     setStage("context");
   };
   const shuffle = async () => {
@@ -517,11 +523,16 @@ function Header({
   const n = journey.indexOf(stage),
     t = (v: string) => text(locale, v);
   return (
-    <header>
+    <header className={`stage-${stage}`}>
       {" "}
       <a className="brand" href={pathForLocale("/", locale)}>
         {" "}
-        <span aria-hidden="true">✦</span> <strong>TAROT</strong>{" "}
+        <span aria-hidden="true">✦</span>{" "}
+        <img
+          className="brand-wordmark"
+          src="/assets/brand-wordmark.svg"
+          alt="TAROT"
+        />{" "}
       </a>{" "}
       <nav>
         {" "}
@@ -564,16 +575,18 @@ function Header({
             中文{" "}
           </button>{" "}
         </div>{" "}
-        <div
-          className="progress"
-          role="img"
-          aria-label={`Reading step ${n + 1} of ${journey.length}`}
-        >
-          {" "}
-          {journey.map((_, x) => (
-            <i key={x} className={x <= n ? "on" : ""} />
-          ))}{" "}
-        </div>{" "}
+        {stage !== "question" && (
+          <div
+            className="progress"
+            role="img"
+            aria-label={`Reading step ${n + 1} of ${journey.length}`}
+          >
+            {" "}
+            {journey.map((_, x) => (
+              <i key={x} className={x <= n ? "on" : ""} />
+            ))}{" "}
+          </div>
+        )}{" "}
       </div>{" "}
     </header>
   );
@@ -597,7 +610,7 @@ function Landing({
       {" "}
       <section className="landing">
         {" "}
-        <div>
+        <div className="landing-copy">
           {" "}
           <p className="eyebrow">{t("A QUIET SPACE FOR REFLECTION")}</p>{" "}
           <h1>
@@ -635,8 +648,13 @@ function Landing({
         </div>{" "}
         <div className="hero" aria-hidden="true">
           {" "}
-          <img src={back} alt="" /> <img src={back} alt="" />{" "}
-          <img src={back} alt="" />{" "}
+          <img
+            className="hero-botanical"
+            src="/assets/art/botanical-rose-lily-v1.png"
+            alt=""
+          />{" "}
+          <img className="hero-card" src={back} alt="" />{" "}
+          <span className="hero-seal">T</span>{" "}
         </div>{" "}
       </section>{" "}
       <section className="home-blocks">

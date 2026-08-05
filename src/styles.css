@@ -1,15 +1,3 @@
-@font-face {
-  font-family: "LXGW WenKai Ritual";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-  src: url("/assets/fonts/lxgw-wenkai-ritual-500.woff2") format("woff2");
-}
-html[lang="zh-CN"] {
-  --ritual: "Ma Shan Zheng", "LXGW WenKai Ritual", "Kaiti SC", serif;
-  --reading: "Noto Serif SC", "Songti SC", serif;
-  --sans: "DM Sans", "PingFang SC", sans-serif;
-}
 :root {
   --paper: #eee8d8;
   --ivory: #faf5e8;
@@ -18,11 +6,13 @@ html[lang="zh-CN"] {
   --gold: #875b2d;
   --terra: #88472f;
   --line: rgba(44, 72, 66, 0.2);
-  --brand: "Cinzel Decorative", serif;
-  --ritual: "IM FELL English", serif;
-  --reading: "Source Serif 4", serif;
+  --display: "ZCOOL XiaoWei", "Noto Serif SC", serif;
+  --body: "Noto Serif SC", serif;
+  --brand: var(--display);
+  --ritual: var(--display);
+  --reading: var(--body);
   --serif: var(--reading);
-  --sans: "DM Sans", sans-serif;
+  --sans: var(--body);
 }
 * {
   box-sizing: border-box;
@@ -34,7 +24,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--body);
   font-size: 16px;
 }
 button,
@@ -1275,6 +1265,336 @@ footer em {
     animation-iteration-count: 1 !important;
     transition-duration: 0s !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Folio v3 — real-browser homepage preview. */
+.atmosphere {
+  background:
+    radial-gradient(circle at 72% 18%, rgba(255, 252, 232, 0.9), transparent 34%),
+    linear-gradient(112deg, #f2ecdc 0%, #e8eadf 55%, #d5e1da 100%);
+}
+.atmosphere b {
+  display: none;
+}
+header {
+  height: 88px;
+  padding-inline: max(28px, calc((100vw - 1360px) / 2));
+  grid-template-columns: minmax(225px, 1fr) auto minmax(225px, 1fr);
+  background: rgba(246, 241, 225, 0.5);
+  border-color: rgba(117, 80, 37, 0.28);
+  backdrop-filter: blur(12px);
+}
+.brand {
+  gap: 10px;
+  min-width: 188px;
+}
+.brand::before {
+  margin-right: 2px;
+}
+.brand-wordmark {
+  display: block;
+  width: 112px;
+  height: auto;
+  color: var(--ink);
+}
+header nav {
+  gap: 38px;
+}
+header nav button,
+.account-trigger,
+.locale-switch {
+  font-family: var(--body);
+  letter-spacing: 0.07em;
+}
+.stage-question .header-end {
+  gap: 18px;
+}
+
+.landing {
+  width: min(1360px, calc(100% - 56px));
+  min-height: calc(100svh - 112px);
+  margin: 24px auto 0;
+  padding: clamp(56px, 6vh, 82px) clamp(58px, 5vw, 82px);
+  grid-template-columns: minmax(0, 1.12fr) minmax(350px, 0.88fr);
+  gap: clamp(36px, 4vw, 70px);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgba(148, 103, 51, 0.46);
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.13), transparent 24%, transparent 76%, rgba(255,255,255,0.12)),
+    rgba(250, 246, 233, 0.22);
+  box-shadow:
+    inset 0 0 0 7px rgba(247, 241, 224, 0.34),
+    inset 0 0 0 8px rgba(148, 103, 51, 0.18);
+}
+.landing::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 370px;
+  height: 555px;
+  left: -195px;
+  bottom: -120px;
+  background: url("/assets/art/botanical-rose-lily-v1.png") center/contain no-repeat;
+  opacity: 0.2;
+  transform: rotate(8deg);
+  filter: sepia(0.22) saturate(0.72);
+}
+.landing::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--gold), var(--gold)) left top / 42px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) left top / 1px 42px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right top / 42px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right top / 1px 42px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) left bottom / 42px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) left bottom / 1px 42px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right bottom / 42px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right bottom / 1px 42px no-repeat;
+  opacity: 0.42;
+}
+.landing-copy {
+  width: min(660px, 100%);
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+}
+.landing .eyebrow::before,
+.landing .eyebrow::after {
+  content: "◆";
+  font-size: 6px;
+  margin: 0 11px;
+  vertical-align: 0.3em;
+}
+.landing h1 {
+  font-family: var(--display);
+  font-size: clamp(62px, 5vw, 78px);
+  line-height: 1.08;
+  letter-spacing: 0.015em;
+  margin: 24px 0 28px;
+  text-wrap: balance;
+}
+.landing h1 em {
+  font-style: normal;
+  color: #8c4f2b;
+  text-shadow: 1px 1px rgba(153, 105, 54, 0.15);
+}
+.landing .lede {
+  max-width: 570px;
+  font-size: 16px;
+  line-height: 1.9;
+}
+.landing label {
+  max-width: 600px;
+  margin-top: 30px;
+}
+.landing textarea {
+  min-height: 105px;
+  font-family: var(--body);
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.landing textarea::placeholder {
+  color: rgba(54, 70, 67, 0.6);
+}
+.landing .primary {
+  min-width: 315px;
+  margin-top: 2px;
+  background: rgba(250, 245, 232, 0.58);
+}
+.hero {
+  height: min(650px, 68vh);
+  min-height: 510px;
+  place-items: end center;
+  overflow: visible;
+}
+.hero .hero-botanical {
+  width: 410px;
+  max-width: none;
+  right: -86px;
+  top: -125px;
+  transform: rotate(-13deg);
+  opacity: 0.42;
+  filter: sepia(0.14) saturate(0.72);
+  animation: none;
+}
+.hero .hero-card {
+  width: min(26vw, 330px);
+  max-width: 330px;
+  right: 24px;
+  bottom: -120px;
+  transform: rotate(9deg);
+  z-index: 2;
+  opacity: 0.94;
+  filter: drop-shadow(0 30px 30px rgba(56, 60, 45, 0.2));
+  animation: folio-card-breathe 7s ease-in-out infinite;
+}
+.hero-seal {
+  position: absolute;
+  z-index: 3;
+  right: 12px;
+  top: 52%;
+  width: 34px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(140, 71, 47, 0.72);
+  color: var(--terra);
+  font-family: var(--display);
+  font-size: 18px;
+  writing-mode: vertical-rl;
+  opacity: 0.76;
+}
+.home-blocks {
+  width: min(1360px, calc(100% - 56px));
+  margin: 0 auto 28px;
+  border: 1px solid var(--line);
+  border-top: 0;
+  background: rgba(250, 245, 232, 0.34);
+}
+.home-blocks button {
+  min-height: 220px;
+  padding: 38px 46px;
+}
+.home-blocks h2 {
+  font-family: var(--display);
+  font-weight: 400;
+}
+
+@keyframes folio-card-breathe {
+  0%, 100% { transform: rotate(9deg) translateY(0); }
+  50% { transform: rotate(8deg) translateY(-7px); }
+}
+
+@media (min-width: 1700px) {
+  .landing h1 {
+    font-size: 78px;
+  }
+  .landing-copy {
+    margin-left: 20px;
+  }
+  .hero .hero-card {
+    width: 330px;
+  }
+}
+
+@media (max-width: 760px) {
+  header {
+    height: 68px;
+    padding-inline: 18px;
+    grid-template-columns: 1fr auto;
+  }
+  .brand {
+    min-width: 0;
+  }
+  .brand-wordmark {
+    width: 95px;
+  }
+  .stage-question .header-end {
+    gap: 10px;
+  }
+  .landing {
+    width: calc(100% - 20px);
+    min-height: calc(100svh - 78px);
+    margin-top: 10px;
+    padding: 54px 24px 0;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    text-align: left;
+  }
+  .landing::before {
+    width: 230px;
+    height: 345px;
+    left: -145px;
+    top: 72px;
+    bottom: auto;
+    opacity: 0.14;
+  }
+  .landing::after {
+    inset: 10px;
+  }
+  .landing-copy {
+    width: 100%;
+    margin: 0;
+  }
+  .landing .eyebrow {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.17em;
+  }
+  .landing h1,
+  html[lang="en"] .landing h1,
+  html[lang="zh-CN"] .landing h1 {
+    font-size: 46px;
+    line-height: 1.18;
+    letter-spacing: 0.01em;
+    text-align: center;
+    white-space: normal;
+    margin: 24px 0;
+  }
+  .landing .lede {
+    font-size: 14px;
+    line-height: 1.85;
+    text-align: center;
+  }
+  .landing label {
+    margin-top: 28px;
+  }
+  .landing textarea {
+    min-height: 98px;
+    padding-right: 38px;
+    font-size: 20px;
+    line-height: 1.55;
+  }
+  .landing .primary {
+    width: min(100%, 320px);
+    min-width: 0;
+    margin: 0 auto;
+    display: flex;
+  }
+  .landing .fine {
+    text-align: center;
+  }
+  .hero {
+    height: 315px;
+    min-height: 315px;
+  }
+  .hero .hero-botanical {
+    width: 235px;
+    right: -88px;
+    top: -38px;
+    opacity: 0.34;
+  }
+  .hero .hero-card {
+    width: 175px;
+    right: 28px;
+    bottom: -42px;
+  }
+  .hero-seal {
+    right: 6px;
+    top: 35%;
+  }
+  .home-blocks {
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+  }
+  .home-blocks button {
+    min-height: 185px;
+    padding: 32px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-card {
+    animation: none;
   }
 }
 /* Suppress the transient native touch highlight only on the card ribbon. */
