@@ -1458,22 +1458,6 @@ header nav button,
   filter: drop-shadow(0 30px 30px rgba(56, 60, 45, 0.2));
   animation: folio-card-breathe 7s ease-in-out infinite;
 }
-.hero-seal {
-  position: absolute;
-  z-index: 3;
-  right: 12px;
-  top: 52%;
-  width: 34px;
-  height: 72px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(140, 71, 47, 0.72);
-  color: var(--terra);
-  font-family: var(--display);
-  font-size: 18px;
-  writing-mode: vertical-rl;
-  opacity: 0.76;
-}
 .home-blocks {
   width: min(1360px, calc(100% - 56px));
   margin: 0 auto 28px;
@@ -1599,10 +1583,6 @@ header nav button,
     width: 175px;
     right: 28px;
     bottom: -42px;
-  }
-  .hero-seal {
-    right: 6px;
-    top: 35%;
   }
   .home-blocks {
     width: calc(100% - 20px);

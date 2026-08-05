@@ -655,7 +655,6 @@ function Landing({
             alt=""
           />{" "}
           <img className="hero-card" src={back} alt="" />{" "}
-          <span className="hero-seal">T</span>{" "}
         </div>{" "}
       </section>{" "}
       <section className="home-blocks">
