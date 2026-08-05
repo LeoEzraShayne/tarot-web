@@ -1274,8 +1274,26 @@ footer em {
     radial-gradient(circle at 72% 18%, rgba(255, 252, 232, 0.9), transparent 34%),
     linear-gradient(112deg, #f2ecdc 0%, #e8eadf 55%, #d5e1da 100%);
 }
+.atmosphere i {
+  width: 120vw;
+  height: 105vh;
+  right: -20vw;
+  top: -22vh;
+  border-radius: 0;
+  filter: blur(64px);
+  background: radial-gradient(
+    ellipse at 70% 12%,
+    rgba(255, 253, 238, 0.9) 0%,
+    rgba(255, 250, 226, 0.4) 42%,
+    rgba(242, 239, 217, 0.12) 68%,
+    transparent 88%
+  );
+}
 .atmosphere b {
   display: none;
+}
+.app.stage-question > .atmosphere {
+  position: absolute;
 }
 header {
   height: 88px;
@@ -1397,6 +1415,7 @@ header nav button,
 }
 .landing textarea {
   --writing-line: 48px;
+  --writing-rule: rgba(126, 94, 53, 0.38);
   min-height: 104px;
   padding-top: 8px;
   padding-bottom: 0;
@@ -1409,10 +1428,17 @@ header nav button,
     to bottom,
     transparent 0,
     transparent calc(var(--writing-line) - 1px),
-    rgba(126, 94, 53, 0.42) calc(var(--writing-line) - 1px),
-    rgba(126, 94, 53, 0.42) var(--writing-line)
+    var(--writing-rule) calc(var(--writing-line) - 1px),
+    var(--writing-rule) var(--writing-line)
   );
   background-position: 0 8px;
+  caret-color: var(--terra);
+  transition: filter 180ms ease;
+}
+.landing label:hover textarea,
+.landing textarea:focus {
+  --writing-rule: rgba(126, 78, 43, 0.66);
+  filter: drop-shadow(0 5px 7px rgba(108, 72, 36, 0.06));
 }
 .landing textarea::placeholder {
   color: transparent;
@@ -1427,9 +1453,27 @@ header nav button,
   opacity: 0;
 }
 .landing .primary {
-  min-width: 315px;
+  min-width: 335px;
+  min-height: 66px;
   margin-top: 2px;
+  padding-left: 30px;
+  font-size: 13px;
   background: rgba(250, 245, 232, 0.58);
+  box-shadow: 0 10px 28px rgba(79, 66, 44, 0.06);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+.landing .primary b {
+  width: 48px;
+  height: 48px;
+}
+.landing .primary:hover,
+.landing .primary:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(253, 249, 238, 0.8);
+  box-shadow: 0 14px 34px rgba(79, 66, 44, 0.1);
 }
 .hero {
   height: min(650px, 68vh);
@@ -1461,13 +1505,35 @@ header nav button,
 .home-blocks {
   width: min(1360px, calc(100% - 56px));
   margin: 0 auto 28px;
-  border: 1px solid var(--line);
-  border-top: 0;
-  background: rgba(250, 245, 232, 0.34);
+  border: 0;
+  border-top: 1px solid rgba(117, 80, 37, 0.22);
+  background: rgba(250, 245, 232, 0.18);
 }
 .home-blocks button {
+  position: relative;
   min-height: 220px;
   padding: 38px 46px;
+  border-right: 0;
+  background: transparent;
+}
+.home-blocks button + button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 38px;
+  bottom: 38px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(117, 80, 37, 0.28) 18%,
+    rgba(117, 80, 37, 0.28) 82%,
+    transparent
+  );
+}
+.home-blocks button > span {
+  color: var(--gold);
+  font-size: 9px;
 }
 .home-blocks h2 {
   font-family: var(--display);
@@ -1563,6 +1629,7 @@ header nav button,
   .landing .primary {
     width: min(100%, 320px);
     min-width: 0;
+    min-height: 62px;
     margin: 0 auto;
     display: flex;
   }
@@ -1592,11 +1659,29 @@ header nav button,
     min-height: 185px;
     padding: 32px 28px;
   }
+  .home-blocks button + button::before {
+    left: 28px;
+    right: 28px;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(117, 80, 37, 0.28) 18%,
+      rgba(117, 80, 37, 0.28) 82%,
+      transparent
+    );
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero .hero-card {
     animation: none;
+  }
+  .landing .primary {
+    transform: none;
   }
 }
 /* Suppress the transient native touch highlight only on the card ribbon. */
