@@ -632,7 +632,9 @@ function Landing({
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
             />{" "}
-            <small>{question.length} / 200</small>{" "}
+            <small className={question.length === 0 ? "is-empty" : undefined}>
+              {question.length} / 200
+            </small>{" "}
           </label>{" "}
           <button className="primary" onClick={begin}>
             {" "}
