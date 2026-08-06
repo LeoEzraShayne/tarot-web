@@ -1054,7 +1054,42 @@ function diagramGroups(cards: RevealedCard[]) {
   return [cards];
 }
 
-function DiagramBranches({ count }: { count: number }) {
+function DiagramBranches({
+  count,
+  folio = false,
+}: {
+  count: number;
+  folio?: boolean;
+}) {
+  if (folio && count === 3) {
+    const terminals = [1000 / 6, 500, 5000 / 6];
+    return (
+      <svg
+        className="diagram-branches diagram-branches-folio"
+        viewBox="0 0 1000 168"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        {terminals.map((x) => (
+          <g key={x}>
+            <path d={`M ${x} 0 V 54`} pathLength="1" />
+            <circle cx={x} cy="54" r="8" />
+            <circle className="diagram-terminal-dot" cx={x} cy="54" r="2.5" />
+          </g>
+        ))}
+        <path
+          d={`M ${terminals[0]} 54 H 326 Q 382 54 402 108 Q 410 132 438 154`}
+          pathLength="1"
+        />
+        <path d="M 500 54 V 158" pathLength="1" />
+        <path
+          d={`M ${terminals[2]} 54 H 674 Q 618 54 598 108 Q 590 132 562 154`}
+          pathLength="1"
+        />
+      </svg>
+    );
+  }
+
   return (
     <svg
       className="diagram-branches"
@@ -1168,7 +1203,10 @@ function ReadingDiagram({
                   );
                 })}
               </div>
-              <DiagramBranches count={group.length} />
+              <DiagramBranches
+                count={group.length}
+                folio={cards.length === 3}
+              />
             </section>
           );
         })}

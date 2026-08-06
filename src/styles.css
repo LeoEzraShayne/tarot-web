@@ -3048,9 +3048,19 @@ html[lang="zh-CN"] .landing h1 {
   fill: #eee1bd;
   stroke: #9a743f;
 }
+.diagram-branches-folio {
+  height: 118px;
+}
+.diagram-branches-folio .diagram-terminal-dot {
+  fill: #9a743f;
+  stroke: none;
+}
 .diagram-root {
   width: min(390px, 46%);
   margin: -12px auto 0;
+}
+.reading-diagram.count-3 .diagram-root {
+  margin-top: -78px;
 }
 .diagram-root img {
   display: block;
@@ -3375,9 +3385,15 @@ html[lang="zh-CN"] .landing h1 {
   .diagram-branches {
     height: 52px;
   }
+  .diagram-branches-folio {
+    height: 82px;
+  }
   .diagram-root {
     width: min(270px, 72%);
     margin-top: -12px;
+  }
+  .reading-diagram.count-3 .diagram-root {
+    margin-top: -58px;
   }
   .diagram-rose-sprig {
     width: 150px;
