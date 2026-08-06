@@ -707,6 +707,14 @@ main {
 }
 .results {
   padding: 45px 6vw 90px;
+  position: relative;
+  isolation: isolate;
+  background-color: #eee9dc;
+  background-image:
+    linear-gradient(rgba(241, 237, 224, 0.34), rgba(232, 235, 225, 0.22)),
+    url("/assets/art/archival-linen-paper-v1.jpg");
+  background-size: auto, 640px 640px;
+  background-blend-mode: normal, multiply;
 }
 .result-head {
   display: flex;
@@ -2889,6 +2897,24 @@ html[lang="zh-CN"] .landing h1 {
   width: min(1120px, 100%);
   margin-inline: auto;
   color: var(--ink);
+  position: relative;
+  isolation: isolate;
+}
+.diagram-rose-sprig {
+  width: clamp(160px, 17vw, 245px);
+  height: auto;
+  position: absolute;
+  z-index: -1;
+  top: -170px;
+  right: -48px;
+  opacity: 0.48;
+  filter: saturate(0.72) sepia(0.12);
+  pointer-events: none;
+}
+.diagram-groups,
+.diagram-root {
+  position: relative;
+  z-index: 1;
 }
 .diagram-groups {
   position: relative;
@@ -2974,12 +3000,13 @@ html[lang="zh-CN"] .landing h1 {
   width: 100%;
   max-width: 175px;
   margin: 11px auto 0;
-  border: 1px solid rgba(112, 78, 39, 0.42);
-  border-radius: 5px;
+  border: 1px solid rgba(112, 78, 39, 0.5);
+  border-radius: 3px;
   background: rgba(248, 243, 228, 0.7);
   box-shadow:
-    0 13px 18px rgba(56, 56, 42, 0.14),
-    0 0 0 5px rgba(250, 246, 233, 0.44);
+    0 15px 22px rgba(56, 56, 42, 0.16),
+    0 0 0 6px rgba(238, 229, 207, 0.9),
+    0 0 0 7px rgba(112, 78, 39, 0.14);
 }
 .reading-diagram.count-6 .diagram-card-row article > img,
 .reading-diagram.count-10 .diagram-card-row article > img {
@@ -3022,13 +3049,14 @@ html[lang="zh-CN"] .landing h1 {
   stroke: #9a743f;
 }
 .diagram-root {
-  width: min(360px, 43%);
-  margin: -8px auto 0;
+  width: min(390px, 46%);
+  margin: -12px auto 0;
 }
 .diagram-root img {
   display: block;
   width: 100%;
   height: auto;
+  filter: saturate(0.72) sepia(0.1);
 }
 .diagram-groups.groups-2::after {
   content: "";
@@ -3049,9 +3077,17 @@ html[lang="zh-CN"] .landing h1 {
 .mode-result {
   width: min(1240px, calc(100% - 36px));
   margin: 28px auto 82px;
-  padding: 42px clamp(24px, 4vw, 56px) 28px;
-  border-block: 1px solid rgba(145, 103, 55, 0.3);
-  background: rgba(250, 246, 233, 0.19);
+  padding: 58px clamp(24px, 4vw, 56px) 36px;
+  border: 1px solid rgba(145, 103, 55, 0.24);
+  background-color: rgba(242, 238, 224, 0.5);
+  background-image:
+    linear-gradient(rgba(248, 245, 234, 0.16), rgba(229, 234, 224, 0.12)),
+    url("/assets/art/archival-linen-paper-v1.jpg");
+  background-size: auto, 520px 520px;
+  background-blend-mode: normal, multiply;
+  box-shadow:
+    inset 0 0 0 8px rgba(250, 246, 233, 0.2),
+    0 24px 55px rgba(54, 62, 49, 0.06);
   animation: diagram-result-arrive 0.8s ease both;
 }
 .mode-result.count-1 {
@@ -3078,9 +3114,13 @@ html[lang="zh-CN"] .landing h1 {
   display: block;
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 72% 18%, rgba(255, 252, 232, 0.72), transparent 34%),
-    linear-gradient(110deg, rgba(246, 240, 224, 0.9), rgba(223, 230, 220, 0.82));
+  background-color: #eee9dc;
+  background-image:
+    radial-gradient(circle at 72% 18%, rgba(255, 252, 232, 0.62), transparent 34%),
+    linear-gradient(110deg, rgba(246, 240, 224, 0.44), rgba(223, 230, 220, 0.34)),
+    url("/assets/art/archival-linen-paper-v1.jpg");
+  background-size: auto, auto, 640px 640px;
+  background-blend-mode: normal, normal, multiply;
 }
 .interpretation-ritual::before {
   content: "";
@@ -3312,8 +3352,9 @@ html[lang="zh-CN"] .landing h1 {
     margin-top: 7px;
     border-radius: 3px;
     box-shadow:
-      0 8px 11px rgba(56, 56, 42, 0.13),
-      0 0 0 3px rgba(250, 246, 233, 0.4);
+      0 9px 13px rgba(56, 56, 42, 0.14),
+      0 0 0 4px rgba(238, 229, 207, 0.9),
+      0 0 0 5px rgba(112, 78, 39, 0.12);
   }
   .reading-diagram.count-6 .diagram-card-row article > img,
   .reading-diagram.count-10 .diagram-card-row article > img {
@@ -3335,8 +3376,14 @@ html[lang="zh-CN"] .landing h1 {
     height: 52px;
   }
   .diagram-root {
-    width: min(235px, 62%);
-    margin-top: -7px;
+    width: min(270px, 72%);
+    margin-top: -12px;
+  }
+  .diagram-rose-sprig {
+    width: 150px;
+    top: -132px;
+    right: -32px;
+    opacity: 0.34;
   }
   .mode-ritual.count-6 .diagram-root,
   .mode-ritual.count-10 .diagram-root {

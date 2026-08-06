@@ -1119,6 +1119,12 @@ function ReadingDiagram({
         reading ? "has-keywords" : "is-gathering"
       }`}
     >
+      <img
+        className="diagram-rose-sprig"
+        src="/assets/art/result-rose-sprig-v1.png"
+        alt=""
+        aria-hidden="true"
+      />
       <div className={`diagram-groups groups-${groups.length}`}>
         {groups.map((group, groupIndex) => {
           const label = diagramGroupLabel(cards.length, groupIndex, locale);
@@ -1168,7 +1174,7 @@ function ReadingDiagram({
         })}
       </div>
       <div className="diagram-root" aria-hidden="true">
-        <img src="/assets/ritual-flourish.svg" alt="" />
+        <img src="/assets/art/result-floral-flourish-v1.png" alt="" />
       </div>
     </div>
   );
