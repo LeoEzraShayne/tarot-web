@@ -1078,12 +1078,12 @@ function DiagramBranches({
           </g>
         ))}
         <path
-          d={`M ${terminals[0]} 54 H 326 Q 382 54 402 108 Q 410 132 438 154`}
+          d={`M ${terminals[0]} 54 H 438 V 154`}
           pathLength="1"
         />
         <path d="M 500 54 V 158" pathLength="1" />
         <path
-          d={`M ${terminals[2]} 54 H 674 Q 618 54 598 108 Q 590 132 562 154`}
+          d={`M ${terminals[2]} 54 H 562 V 154`}
           pathLength="1"
         />
       </svg>
@@ -1108,12 +1108,12 @@ function DiagramBranches({
               <path d={`M ${x} 0 V 38`} pathLength="1" />
               <circle cx={x} cy="38" r="6" />
               <circle className="diagram-terminal-dot" cx={x} cy="38" r="2" />
-              <path d={`M ${x} 38 Q ${x} 78 500 92`} pathLength="1" />
+              <path d={`M ${x} 38 H 500`} pathLength="1" />
             </g>
           ))}
-          <circle cx="500" cy="92" r="8" />
-          <circle className="diagram-terminal-dot" cx="500" cy="92" r="2.5" />
-          <path className="diagram-group-stem" d="M 500 92 V 132" pathLength="1" />
+          <circle cx="500" cy="38" r="8" />
+          <circle className="diagram-terminal-dot" cx="500" cy="38" r="2.5" />
+          <path className="diagram-group-stem" d="M 500 38 V 132" pathLength="1" />
         </g>
         <g className="diagram-mobile-group-branch">
           <path d="M 500 0 V 132" pathLength="1" />
@@ -1136,7 +1136,7 @@ function DiagramBranches({
         return (
           <path
             key={x}
-            d={`M ${x} 0 V 28 Q ${x} 70 500 76 V 112`}
+            d={`M ${x} 0 V 28 H 500 V 112`}
             pathLength="1"
           />
         );
@@ -1149,7 +1149,22 @@ function DiagramBranches({
 }
 
 function DiagramGroupConvergence({ total }: { total: number }) {
-  const [left, right] = total === 10 ? [280, 810] : [240, 760];
+  if (total === 10) {
+    return (
+      <svg
+        className="diagram-group-convergence diagram-group-convergence-stacked"
+        viewBox="0 0 1000 168"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d="M 500 0 V 156" pathLength="1" />
+        <circle cx="500" cy="42" r="8" />
+        <circle className="diagram-terminal-dot" cx="500" cy="42" r="2.5" />
+      </svg>
+    );
+  }
+
+  const [left, right] = [240, 760];
   return (
     <svg
       className="diagram-group-convergence"
@@ -1161,14 +1176,14 @@ function DiagramGroupConvergence({ total }: { total: number }) {
       <circle cx={left} cy="42" r="8" />
       <circle className="diagram-terminal-dot" cx={left} cy="42" r="2.5" />
       <path
-        d={`M ${left} 42 H 360 Q 410 42 426 98 Q 434 128 466 156`}
+        d={`M ${left} 42 H 466 V 156`}
         pathLength="1"
       />
       <path d={`M ${right} 0 V 42`} pathLength="1" />
       <circle cx={right} cy="42" r="8" />
       <circle className="diagram-terminal-dot" cx={right} cy="42" r="2.5" />
       <path
-        d={`M ${right} 42 H 640 Q 590 42 574 98 Q 566 128 534 156`}
+        d={`M ${right} 42 H 534 V 156`}
         pathLength="1"
       />
     </svg>

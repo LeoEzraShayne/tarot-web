@@ -2926,7 +2926,12 @@ html[lang="zh-CN"] .landing h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .reading-diagram.count-10 .diagram-groups.groups-2 {
-  grid-template-columns: minmax(0, 1.42fr) minmax(0, 0.96fr);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 42px);
+}
+.reading-diagram.count-10 .diagram-group.group-2 {
+  width: 68%;
+  margin-inline: auto;
 }
 .diagram-group {
   min-width: 0;
@@ -3079,6 +3084,9 @@ html[lang="zh-CN"] .landing h1 {
 .diagram-group-convergence circle {
   fill: #eee1bd;
   stroke: #9a743f;
+}
+.diagram-group-convergence-stacked {
+  height: 92px;
 }
 .diagram-root {
   width: min(390px, 46%);
@@ -3361,6 +3369,9 @@ html[lang="zh-CN"] .landing h1 {
   .reading-diagram.count-10 .diagram-groups.groups-2 {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+  .reading-diagram.count-10 .diagram-group.group-2 {
+    width: 100%;
   }
   .diagram-group-label {
     margin-bottom: 5px;
