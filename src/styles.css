@@ -3055,11 +3055,40 @@ html[lang="zh-CN"] .landing h1 {
   fill: #9a743f;
   stroke: none;
 }
+.diagram-branches-group {
+  height: 94px;
+}
+.diagram-branches-group .diagram-terminal-dot,
+.diagram-group-convergence .diagram-terminal-dot {
+  fill: #9a743f;
+  stroke: none;
+}
+.diagram-mobile-group-branch {
+  display: none;
+}
+.diagram-group-convergence {
+  display: block;
+  width: 100%;
+  height: 118px;
+  overflow: visible;
+  fill: none;
+  stroke: var(--diagram-stroke);
+  stroke-width: 1.15;
+  vector-effect: non-scaling-stroke;
+}
+.diagram-group-convergence circle {
+  fill: #eee1bd;
+  stroke: #9a743f;
+}
 .diagram-root {
   width: min(390px, 46%);
   margin: -12px auto 0;
 }
 .reading-diagram.count-3 .diagram-root {
+  margin-top: -78px;
+}
+.reading-diagram.count-6 .diagram-root,
+.reading-diagram.count-10 .diagram-root {
   margin-top: -78px;
 }
 .diagram-root img {
@@ -3069,19 +3098,7 @@ html[lang="zh-CN"] .landing h1 {
   filter: saturate(0.72) sepia(0.1);
 }
 .diagram-groups.groups-2::after {
-  content: "";
-  position: absolute;
-  left: 24%;
-  right: 20%;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(145, 103, 55, 0.55) 18%,
-    rgba(145, 103, 55, 0.55) 82%,
-    transparent
-  );
+  content: none;
 }
 
 .mode-result {
@@ -3211,7 +3228,9 @@ html[lang="zh-CN"] .landing h1 {
 }
 .mode-ritual .diagram-branches path:not(.diagram-branch-diamond),
 .mode-ritual .diagram-branches circle,
-.mode-ritual .diagram-branch-diamond {
+.mode-ritual .diagram-branch-diamond,
+.mode-ritual .diagram-group-convergence path,
+.mode-ritual .diagram-group-convergence circle {
   opacity: 0;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
@@ -3388,6 +3407,18 @@ html[lang="zh-CN"] .landing h1 {
   .diagram-branches-folio {
     height: 82px;
   }
+  .diagram-branches-group {
+    height: 42px;
+  }
+  .diagram-desktop-group-branches {
+    display: none;
+  }
+  .diagram-mobile-group-branch {
+    display: block;
+  }
+  .diagram-group-convergence {
+    height: 82px;
+  }
   .diagram-root {
     width: min(270px, 72%);
     margin-top: -12px;
@@ -3395,10 +3426,14 @@ html[lang="zh-CN"] .landing h1 {
   .reading-diagram.count-3 .diagram-root {
     margin-top: -58px;
   }
+  .reading-diagram.count-6 .diagram-root,
+  .reading-diagram.count-10 .diagram-root {
+    margin-top: -58px;
+  }
   .diagram-rose-sprig {
     width: 150px;
     top: -132px;
-    right: -32px;
+    right: -28px;
     opacity: 0.34;
   }
   .mode-ritual.count-6 .diagram-root,
@@ -3423,12 +3458,6 @@ html[lang="zh-CN"] .landing h1 {
   .mode-result.count-6 .diagram-card-row article > img,
   .mode-result.count-10 .diagram-card-row article > img {
     max-width: 118px;
-  }
-  .mode-result.count-6 .diagram-branches path:not(.diagram-branch-stem),
-  .mode-result.count-10 .diagram-branches path:not(.diagram-branch-stem),
-  .mode-result.count-6 .diagram-branches circle,
-  .mode-result.count-10 .diagram-branches circle {
-    display: none;
   }
   .ritual-reading-copy {
     padding-left: 24px;
@@ -3460,6 +3489,8 @@ html[lang="zh-CN"] .landing h1 {
   .mode-ritual .diagram-card-row article > img,
   .mode-ritual .diagram-branches path,
   .mode-ritual .diagram-branches circle,
+  .mode-ritual .diagram-group-convergence path,
+  .mode-ritual .diagram-group-convergence circle,
   .mode-ritual .diagram-root,
   .mode-result {
     animation-duration: 0.25s;
