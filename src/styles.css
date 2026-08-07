@@ -793,6 +793,10 @@ main {
   font-size: 11px;
   color: var(--gold);
 }
+.meaning > span {
+  font-family: var(--display);
+  font-size: 15px;
+}
 .overview h2 {
   font: 400 25px var(--serif);
   margin: 12px 0 2px;
@@ -839,25 +843,29 @@ main {
 }
 .meaning h2 em {
   display: block;
-  font: 400 12px var(--sans);
+  font: 400 15px var(--display);
+  font-style: normal;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--terra);
 }
 .meaning h3 {
-  font-size: 11px;
+  font-family: var(--display);
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--gold);
   margin: 23px 0 8px;
 }
 .meaning p {
-  font-size: 18px;
-  line-height: 1.7;
+  font-family: var(--reading);
+  font-size: 20px;
+  line-height: 1.8;
   color: #465b58;
 }
 .meaning blockquote {
-  font: italic 24px/1.4 var(--serif);
+  font: 400 27px/1.5 var(--display);
+  font-style: normal;
   border-left: 2px solid var(--terra);
   padding-left: 20px;
   margin: 30px 0;
@@ -1318,7 +1326,8 @@ footer em {
     font-size: 36px;
   }
   .meaning p {
-    font-size: 17px;
+    font-size: 18px;
+    line-height: 1.8;
   }
   .closing {
     padding: 25px 20px;
@@ -2938,11 +2947,11 @@ html[lang="zh-CN"] .landing h1 {
   text-align: center;
 }
 .diagram-group-label {
-  min-height: 20px;
+  min-height: 24px;
   margin: 0 0 12px;
   color: var(--gold);
-  font: 400 10px var(--body);
-  letter-spacing: 0.2em;
+  font: 400 13px var(--display);
+  letter-spacing: 0.14em;
 }
 .diagram-card-row {
   display: grid;
@@ -2956,14 +2965,14 @@ html[lang="zh-CN"] .landing h1 {
   text-align: center;
 }
 .diagram-position {
-  min-height: 58px;
+  min-height: 64px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   color: #75512e;
-  font: 400 clamp(10px, 1vw, 13px) var(--display);
-  letter-spacing: 0.14em;
+  font: 400 clamp(15px, 1.15vw, 17px) var(--display);
+  letter-spacing: 0.08em;
 }
 .diagram-position span {
   min-height: 2.6em;
@@ -3028,12 +3037,12 @@ html[lang="zh-CN"] .landing h1 {
   min-height: 2.7em;
   margin-top: 10px;
   color: var(--ink);
-  font: 400 clamp(13px, 1.2vw, 18px)/1.35 var(--display);
-  letter-spacing: 0.08em;
+  font: 400 clamp(16px, 1.25vw, 18px)/1.4 var(--display);
+  letter-spacing: 0.06em;
 }
 .reading-diagram.count-6 .diagram-keyword strong,
 .reading-diagram.count-10 .diagram-keyword strong {
-  font-size: 13px;
+  font-size: 16px;
 }
 .reading-diagram.is-gathering .diagram-keyword strong {
   opacity: 0.28;
@@ -3054,14 +3063,14 @@ html[lang="zh-CN"] .landing h1 {
   stroke: #9a743f;
 }
 .diagram-branches-folio {
-  height: 118px;
+  height: 84px;
 }
 .diagram-branches-folio .diagram-terminal-dot {
   fill: #9a743f;
   stroke: none;
 }
 .diagram-branches-group {
-  height: 94px;
+  height: 61px;
 }
 .diagram-branches-group .diagram-terminal-dot,
 .diagram-group-convergence .diagram-terminal-dot {
@@ -3074,7 +3083,7 @@ html[lang="zh-CN"] .landing h1 {
 .diagram-group-convergence {
   display: block;
   width: 100%;
-  height: 118px;
+  height: 78px;
   overflow: visible;
   fill: none;
   stroke: var(--diagram-stroke);
@@ -3086,18 +3095,20 @@ html[lang="zh-CN"] .landing h1 {
   stroke: #9a743f;
 }
 .diagram-group-convergence-stacked {
-  height: 92px;
+  height: 46px;
 }
 .diagram-root {
   width: min(390px, 46%);
   margin: -12px auto 0;
 }
 .reading-diagram.count-3 .diagram-root {
-  margin-top: -78px;
+  margin-top: -44px;
 }
-.reading-diagram.count-6 .diagram-root,
+.reading-diagram.count-6 .diagram-root {
+  margin-top: -52px;
+}
 .reading-diagram.count-10 .diagram-root {
-  margin-top: -78px;
+  margin-top: -38px;
 }
 .diagram-root img {
   display: block;
@@ -3374,15 +3385,17 @@ html[lang="zh-CN"] .landing h1 {
     width: 100%;
   }
   .diagram-group-label {
+    min-height: 22px;
     margin-bottom: 5px;
+    font-size: 12px;
   }
   .diagram-card-row {
     gap: 8px;
   }
   .diagram-position {
-    min-height: 48px;
-    font-size: 9px;
-    letter-spacing: 0.06em;
+    min-height: 54px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
   }
   .diagram-position span {
     min-height: 2.5em;
@@ -3408,18 +3421,18 @@ html[lang="zh-CN"] .landing h1 {
   .reading-diagram.count-10 .diagram-keyword strong {
     min-height: 2.3em;
     margin-top: 6px;
-    font-size: 11px;
-    line-height: 1.25;
+    font-size: 14px;
+    line-height: 1.35;
     letter-spacing: 0.03em;
   }
   .diagram-branches {
     height: 52px;
   }
   .diagram-branches-folio {
-    height: 82px;
+    height: 58px;
   }
   .diagram-branches-group {
-    height: 42px;
+    height: 28px;
   }
   .diagram-desktop-group-branches {
     display: none;
@@ -3428,18 +3441,23 @@ html[lang="zh-CN"] .landing h1 {
     display: block;
   }
   .diagram-group-convergence {
-    height: 82px;
+    height: 55px;
+  }
+  .diagram-group-convergence-stacked {
+    height: 32px;
   }
   .diagram-root {
     width: min(270px, 72%);
     margin-top: -12px;
   }
   .reading-diagram.count-3 .diagram-root {
-    margin-top: -58px;
+    margin-top: -36px;
   }
-  .reading-diagram.count-6 .diagram-root,
+  .reading-diagram.count-6 .diagram-root {
+    margin-top: -36px;
+  }
   .reading-diagram.count-10 .diagram-root {
-    margin-top: -58px;
+    margin-top: -27px;
   }
   .diagram-rose-sprig {
     width: 150px;

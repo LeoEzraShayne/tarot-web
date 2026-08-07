@@ -1066,7 +1066,7 @@ function DiagramBranches({
     return (
       <svg
         className="diagram-branches diagram-branches-folio"
-        viewBox="0 0 1000 168"
+        viewBox="0 0 1000 118"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
@@ -1078,12 +1078,12 @@ function DiagramBranches({
           </g>
         ))}
         <path
-          d={`M ${terminals[0]} 54 H 438 V 154`}
+          d={`M ${terminals[0]} 54 H 438 V 104`}
           pathLength="1"
         />
-        <path d="M 500 54 V 158" pathLength="1" />
+        <path d="M 500 54 V 108" pathLength="1" />
         <path
-          d={`M ${terminals[2]} 54 H 562 V 154`}
+          d={`M ${terminals[2]} 54 H 562 V 104`}
           pathLength="1"
         />
       </svg>
@@ -1098,7 +1098,7 @@ function DiagramBranches({
     return (
       <svg
         className="diagram-branches diagram-branches-group"
-        viewBox="0 0 1000 132"
+        viewBox="0 0 1000 85"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
@@ -1113,10 +1113,10 @@ function DiagramBranches({
           ))}
           <circle cx="500" cy="38" r="8" />
           <circle className="diagram-terminal-dot" cx="500" cy="38" r="2.5" />
-          <path className="diagram-group-stem" d="M 500 38 V 132" pathLength="1" />
+          <path className="diagram-group-stem" d="M 500 38 V 85" pathLength="1" />
         </g>
         <g className="diagram-mobile-group-branch">
-          <path d="M 500 0 V 132" pathLength="1" />
+          <path d="M 500 0 V 85" pathLength="1" />
           <circle cx="500" cy="34" r="8" />
           <circle className="diagram-terminal-dot" cx="500" cy="34" r="2.5" />
         </g>
@@ -1153,13 +1153,13 @@ function DiagramGroupConvergence({ total }: { total: number }) {
     return (
       <svg
         className="diagram-group-convergence diagram-group-convergence-stacked"
-        viewBox="0 0 1000 168"
+        viewBox="0 0 1000 90"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        <path d="M 500 0 V 156" pathLength="1" />
-        <circle cx="500" cy="42" r="8" />
-        <circle className="diagram-terminal-dot" cx="500" cy="42" r="2.5" />
+        <path d="M 500 0 V 78" pathLength="1" />
+        <circle cx="500" cy="21" r="8" />
+        <circle className="diagram-terminal-dot" cx="500" cy="21" r="2.5" />
       </svg>
     );
   }
@@ -1168,7 +1168,7 @@ function DiagramGroupConvergence({ total }: { total: number }) {
   return (
     <svg
       className="diagram-group-convergence"
-      viewBox="0 0 1000 168"
+      viewBox="0 0 1000 111"
       preserveAspectRatio="none"
       aria-hidden="true"
     >
@@ -1176,14 +1176,14 @@ function DiagramGroupConvergence({ total }: { total: number }) {
       <circle cx={left} cy="42" r="8" />
       <circle className="diagram-terminal-dot" cx={left} cy="42" r="2.5" />
       <path
-        d={`M ${left} 42 H 466 V 156`}
+        d={`M ${left} 42 H 466 V 99`}
         pathLength="1"
       />
       <path d={`M ${right} 0 V 42`} pathLength="1" />
       <circle cx={right} cy="42" r="8" />
       <circle className="diagram-terminal-dot" cx={right} cy="42" r="2.5" />
       <path
-        d={`M ${right} 42 H 534 V 156`}
+        d={`M ${right} 42 H 534 V 99`}
         pathLength="1"
       />
     </svg>
