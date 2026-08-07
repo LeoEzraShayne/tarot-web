@@ -379,6 +379,7 @@ export function App() {
       <Header
         stage={stage}
         go={go}
+        onHome={restart}
         onLogin={() => setLoginOpen(true)}
         onAccount={() => setAccountOpen(true)}
         user={user}
@@ -506,6 +507,7 @@ function PageCorners() {
 function Header({
   stage,
   go,
+  onHome,
   onLogin,
   onAccount,
   user,
@@ -514,6 +516,7 @@ function Header({
 }: {
   stage: Stage;
   go: (p: string) => void;
+  onHome?: () => void;
   onLogin: () => void;
   onAccount: () => void;
   user: User | null;
@@ -535,7 +538,15 @@ function Header({
   return (
     <header className={`stage-${stage}`}>
       {" "}
-      <a className="brand" href={pathForLocale("/", locale)}>
+      <a
+        className="brand"
+        href={pathForLocale("/", locale)}
+        onClick={(event) => {
+          event.preventDefault();
+          if (onHome) onHome();
+          else go("/");
+        }}
+      >
         {" "}
         <img
           className="brand-emblem"

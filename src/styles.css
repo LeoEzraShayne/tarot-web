@@ -768,6 +768,8 @@ main {
   background-blend-mode: normal, multiply;
 }
 .result-head {
+  width: min(1040px, 100%);
+  margin-inline: auto;
   display: flex;
   justify-content: space-between;
   align-items: end;
