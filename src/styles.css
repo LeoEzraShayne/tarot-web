@@ -152,6 +152,56 @@ header nav button {
 }
 main {
   min-height: calc(100vh - 126px);
+  width: min(1360px, calc(100% - 56px));
+  margin: 24px auto 48px;
+  position: relative;
+  border: 1px solid rgba(143, 105, 58, 0.62);
+  box-shadow:
+    inset 0 0 0 7px rgba(245, 238, 218, 0.5),
+    inset 0 0 0 8px rgba(143, 105, 58, 0.36),
+    inset 0 0 0 13px rgba(245, 238, 218, 0.2),
+    inset 0 0 0 14px rgba(143, 105, 58, 0.2);
+  background-color: rgba(238, 233, 220, 0.52);
+  background-image:
+    linear-gradient(rgba(248, 244, 231, 0.14), rgba(229, 234, 224, 0.1)),
+    url("/assets/art/archival-linen-paper-v1.jpg");
+  background-size: auto, 640px 640px;
+  background-blend-mode: normal, multiply;
+}
+.page-corners {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.page-corner {
+  position: absolute;
+  width: clamp(102px, 9vw, 142px);
+  aspect-ratio: 1;
+  background: url("/assets/art/folio-corner-flourish-v1.png") left top / contain
+    no-repeat;
+  opacity: 0.58;
+  mix-blend-mode: multiply;
+  transform-origin: center;
+}
+.page-corner-tl {
+  top: -3px;
+  left: -3px;
+}
+.page-corner-tr {
+  top: -3px;
+  right: -3px;
+  transform: rotate(90deg);
+}
+.page-corner-br {
+  right: -3px;
+  bottom: -3px;
+  transform: rotate(180deg);
+}
+.page-corner-bl {
+  bottom: -3px;
+  left: -3px;
+  transform: rotate(270deg);
 }
 .eyebrow {
   text-transform: uppercase;
@@ -1448,22 +1498,20 @@ header nav button,
 }
 
 .landing {
-  width: min(1360px, calc(100% - 56px));
+  width: 100%;
   min-height: calc(100svh - 112px);
-  margin: 24px auto 0;
+  margin: 0;
   padding: clamp(56px, 6vh, 82px) clamp(58px, 5vw, 82px);
   grid-template-columns: minmax(0, 1.12fr) minmax(350px, 0.88fr);
   gap: clamp(36px, 4vw, 70px);
   overflow: hidden;
   position: relative;
   isolation: isolate;
-  border: 1px solid rgba(148, 103, 51, 0.46);
+  border: 0;
   background:
     linear-gradient(90deg, rgba(255,255,255,0.13), transparent 24%, transparent 76%, rgba(255,255,255,0.12)),
     rgba(250, 246, 233, 0.22);
-  box-shadow:
-    inset 0 0 0 7px rgba(247, 241, 224, 0.34),
-    inset 0 0 0 8px rgba(148, 103, 51, 0.18);
+  box-shadow: none;
 }
 .landing::before {
   content: "";
@@ -1479,21 +1527,7 @@ header nav button,
   filter: sepia(0.22) saturate(0.72);
 }
 .landing::after {
-  content: "";
-  position: absolute;
-  inset: 16px;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    linear-gradient(var(--gold), var(--gold)) left top / 42px 1px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) left top / 1px 42px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) right top / 42px 1px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) right top / 1px 42px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) left bottom / 42px 1px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) left bottom / 1px 42px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) right bottom / 42px 1px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) right bottom / 1px 42px no-repeat;
-  opacity: 0.42;
+  display: none;
 }
 .landing-copy {
   width: min(660px, 100%);
@@ -1691,9 +1725,9 @@ header nav button,
     gap: 10px;
   }
   .landing {
-    width: calc(100% - 20px);
+    width: 100%;
     min-height: calc(100svh - 78px);
-    margin-top: 10px;
+    margin-top: 0;
     padding: 54px 24px 0;
     grid-template-columns: 1fr;
     gap: 8px;
@@ -3584,87 +3618,27 @@ html[lang="zh-CN"] .landing h1 {
   font-family: var(--display);
 }
 
-/* Antique folio frame: generated copperplate corners over scalable CSS rules. */
+/* Antique folio content spacing. The shared frame and flourishes live on main. */
 .results {
   padding: clamp(82px, 7vw, 108px) clamp(58px, 6vw, 96px) 112px;
 }
-.results > :not(.folio-frame) {
-  position: relative;
-  z-index: 1;
-}
-.folio-frame {
-  position: absolute;
-  z-index: 0;
-  inset: 22px;
-  pointer-events: none;
-  border: 1px solid rgba(143, 105, 58, 0.62);
-  box-shadow:
-    inset 0 0 0 5px rgba(245, 238, 218, 0.5),
-    inset 0 0 0 6px rgba(143, 105, 58, 0.36),
-    inset 0 0 0 10px rgba(245, 238, 218, 0.2),
-    inset 0 0 0 11px rgba(143, 105, 58, 0.2);
-}
-.folio-corner {
-  position: absolute;
-  width: clamp(102px, 9vw, 142px);
-  aspect-ratio: 1;
-  background: url("/assets/art/folio-corner-flourish-v1.png") left top / contain
-    no-repeat;
-  opacity: 0.58;
-  mix-blend-mode: multiply;
-  transform-origin: center;
-}
-.folio-corner-tl {
-  top: -25px;
-  left: -25px;
-}
-.folio-corner-tr {
-  top: -25px;
-  right: -25px;
-  transform: rotate(90deg);
-}
-.folio-corner-br {
-  right: -25px;
-  bottom: -25px;
-  transform: rotate(180deg);
-}
-.folio-corner-bl {
-  bottom: -25px;
-  left: -25px;
-  transform: rotate(270deg);
-}
 
 @media (max-width: 760px) {
-  .results {
-    padding: 62px 25px 78px;
-  }
-  .folio-frame {
-    inset: 9px;
+  main {
+    width: calc(100% - 18px);
+    margin: 9px auto 24px;
     box-shadow:
       inset 0 0 0 3px rgba(245, 238, 218, 0.48),
       inset 0 0 0 4px rgba(143, 105, 58, 0.34),
       inset 0 0 0 7px rgba(245, 238, 218, 0.18),
       inset 0 0 0 8px rgba(143, 105, 58, 0.18);
   }
-  .folio-corner {
+  .page-corner {
     width: 78px;
     opacity: 0.52;
   }
-  .folio-corner-tl {
-    top: -16px;
-    left: -8px;
-  }
-  .folio-corner-tr {
-    top: -16px;
-    right: -8px;
-  }
-  .folio-corner-br {
-    right: -8px;
-    bottom: -16px;
-  }
-  .folio-corner-bl {
-    bottom: -16px;
-    left: -8px;
+  .results {
+    padding: 62px 25px 78px;
   }
 }
 

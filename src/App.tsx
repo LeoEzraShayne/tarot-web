@@ -386,6 +386,7 @@ export function App() {
         switchLocale={switchLocale}
       />{" "}
       <main aria-live="polite">
+        <PageCorners />
         {" "}
         {error && (
           <div role="alert" className="error">
@@ -489,6 +490,16 @@ function Atmosphere() {
     <div className="atmosphere" aria-hidden="true">
       {" "}
       <i /> <b>❦</b> <b>❦</b>{" "}
+    </div>
+  );
+}
+function PageCorners() {
+  return (
+    <div className="page-corners" aria-hidden="true">
+      <i className="page-corner page-corner-tl" />
+      <i className="page-corner page-corner-tr" />
+      <i className="page-corner page-corner-br" />
+      <i className="page-corner page-corner-bl" />
     </div>
   );
 }
@@ -1418,12 +1429,6 @@ function Results({
   const t = (v: string) => text(locale, v);
   return (
     <section className="results">
-      <div className="folio-frame" aria-hidden="true">
-        <i className="folio-corner folio-corner-tl" />
-        <i className="folio-corner folio-corner-tr" />
-        <i className="folio-corner folio-corner-br" />
-        <i className="folio-corner folio-corner-bl" />
-      </div>
       {" "}
       <div className="result-head">
         {" "}
@@ -1754,6 +1759,7 @@ function HistoryPage({
         switchLocale={switchLocale}
       />{" "}
       <main>
+        <PageCorners />
         {" "}
         {loading && <div className="history-status">{t("Loading…")}</div>}{" "}
         {historyError && (
@@ -1896,6 +1902,7 @@ function InfoPage({
         switchLocale={switchLocale}
       />{" "}
       <main>
+        <PageCorners />
         {" "}
         <article
           className={`info${usesFolioTypography ? " info-folio-type" : ""}`}
