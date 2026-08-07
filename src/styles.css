@@ -3081,6 +3081,13 @@ html[lang="zh-CN"] .landing h1 {
   display: none;
 }
 .diagram-group-convergence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(30px, 4vw, 64px);
+  width: 100%;
+  height: 78px;
+}
+.diagram-group-convergence svg {
   display: block;
   width: 100%;
   height: 78px;
@@ -3093,9 +3100,6 @@ html[lang="zh-CN"] .landing h1 {
 .diagram-group-convergence circle {
   fill: #eee1bd;
   stroke: #9a743f;
-}
-.diagram-group-convergence-stacked {
-  height: 46px;
 }
 .diagram-root {
   width: min(390px, 46%);
@@ -3454,8 +3458,8 @@ html[lang="zh-CN"] .landing h1 {
   .diagram-group-convergence {
     height: 55px;
   }
-  .diagram-group-convergence-stacked {
-    height: 32px;
+  .diagram-group-convergence svg {
+    height: 55px;
   }
   .diagram-root {
     width: min(270px, 72%);

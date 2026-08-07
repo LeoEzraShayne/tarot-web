@@ -1148,45 +1148,25 @@ function DiagramBranches({
   );
 }
 
-function DiagramGroupConvergence({ total }: { total: number }) {
-  if (total === 10) {
-    return (
-      <svg
-        className="diagram-group-convergence diagram-group-convergence-stacked"
-        viewBox="0 0 1000 90"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path d="M 500 0 V 78" pathLength="1" />
-        <circle cx="500" cy="21" r="8" />
-        <circle className="diagram-terminal-dot" cx="500" cy="21" r="2.5" />
-      </svg>
-    );
-  }
-
-  const [left, right] = [240, 760];
+function DiagramGroupConvergence() {
   return (
-    <svg
+    <div
       className="diagram-group-convergence"
-      viewBox="0 0 1000 111"
-      preserveAspectRatio="none"
       aria-hidden="true"
     >
-      <path d={`M ${left} 0 V 42`} pathLength="1" />
-      <circle cx={left} cy="42" r="8" />
-      <circle className="diagram-terminal-dot" cx={left} cy="42" r="2.5" />
-      <path
-        d={`M ${left} 42 H 466 V 99`}
-        pathLength="1"
-      />
-      <path d={`M ${right} 0 V 42`} pathLength="1" />
-      <circle cx={right} cy="42" r="8" />
-      <circle className="diagram-terminal-dot" cx={right} cy="42" r="2.5" />
-      <path
-        d={`M ${right} 42 H 534 V 99`}
-        pathLength="1"
-      />
-    </svg>
+      <svg viewBox="0 0 1000 111" preserveAspectRatio="none">
+        <path d="M 500 0 V 42" pathLength="1" />
+        <circle cx="500" cy="42" r="8" />
+        <circle className="diagram-terminal-dot" cx="500" cy="42" r="2.5" />
+        <path d="M 500 42 H 920 V 99" pathLength="1" />
+      </svg>
+      <svg viewBox="0 0 1000 111" preserveAspectRatio="none">
+        <path d="M 500 0 V 42" pathLength="1" />
+        <circle cx="500" cy="42" r="8" />
+        <circle className="diagram-terminal-dot" cx="500" cy="42" r="2.5" />
+        <path d="M 500 42 H 80 V 99" pathLength="1" />
+      </svg>
+    </div>
   );
 }
 
@@ -1293,7 +1273,7 @@ function ReadingDiagram({
           );
         })}
       </div>
-      {groups.length === 2 && <DiagramGroupConvergence total={cards.length} />}
+      {cards.length === 6 && <DiagramGroupConvergence />}
       <div className="diagram-root" aria-hidden="true">
         <img src="/assets/art/result-floral-flourish-v1.png" alt="" />
       </div>
