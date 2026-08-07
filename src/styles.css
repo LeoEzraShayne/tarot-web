@@ -3299,6 +3299,17 @@ html[lang="zh-CN"] .landing h1 {
   overflow: hidden;
 }
 
+@media (min-width: 761px) {
+  html[lang="zh-CN"]
+    .interpretation-ritual[aria-busy="true"]
+    .ritual-reading-copy {
+    width: min(1120px, 100%);
+  }
+  html[lang="zh-CN"] .interpretation-ritual[aria-busy="true"] .ritual-reading h2 {
+    white-space: nowrap;
+  }
+}
+
 @keyframes ritual-question-chapter {
   0% { opacity: 0; }
   14%, 76% { opacity: 1; }
