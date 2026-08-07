@@ -3637,19 +3637,19 @@ html[lang="zh-CN"] .landing h1 {
   }
   .folio-corner-tl {
     top: -16px;
-    left: -16px;
+    left: -8px;
   }
   .folio-corner-tr {
     top: -16px;
-    right: -16px;
+    right: -8px;
   }
   .folio-corner-br {
-    right: -16px;
+    right: -8px;
     bottom: -16px;
   }
   .folio-corner-bl {
     bottom: -16px;
-    left: -16px;
+    left: -8px;
   }
 }
 
