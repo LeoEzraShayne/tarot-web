@@ -1438,6 +1438,12 @@ function Results({
   const t = (v: string) => text(locale, v);
   return (
     <section className="results">
+      <div className="folio-frame" aria-hidden="true">
+        <i className="folio-corner folio-corner-tl" />
+        <i className="folio-corner folio-corner-tr" />
+        <i className="folio-corner folio-corner-br" />
+        <i className="folio-corner folio-corner-bl" />
+      </div>
       {" "}
       <div className="result-head">
         {" "}

@@ -3569,6 +3569,90 @@ html[lang="zh-CN"] .landing h1 {
   font-family: var(--display);
 }
 
+/* Antique folio frame: generated copperplate corners over scalable CSS rules. */
+.results {
+  padding: clamp(82px, 7vw, 108px) clamp(58px, 6vw, 96px) 112px;
+}
+.results > :not(.folio-frame) {
+  position: relative;
+  z-index: 1;
+}
+.folio-frame {
+  position: absolute;
+  z-index: 0;
+  inset: 22px;
+  pointer-events: none;
+  border: 1px solid rgba(143, 105, 58, 0.62);
+  box-shadow:
+    inset 0 0 0 5px rgba(245, 238, 218, 0.5),
+    inset 0 0 0 6px rgba(143, 105, 58, 0.36),
+    inset 0 0 0 10px rgba(245, 238, 218, 0.2),
+    inset 0 0 0 11px rgba(143, 105, 58, 0.2);
+}
+.folio-corner {
+  position: absolute;
+  width: clamp(102px, 9vw, 142px);
+  aspect-ratio: 1;
+  background: url("/assets/art/folio-corner-flourish-v1.png") left top / contain
+    no-repeat;
+  opacity: 0.58;
+  mix-blend-mode: multiply;
+  transform-origin: center;
+}
+.folio-corner-tl {
+  top: -25px;
+  left: -25px;
+}
+.folio-corner-tr {
+  top: -25px;
+  right: -25px;
+  transform: rotate(90deg);
+}
+.folio-corner-br {
+  right: -25px;
+  bottom: -25px;
+  transform: rotate(180deg);
+}
+.folio-corner-bl {
+  bottom: -25px;
+  left: -25px;
+  transform: rotate(270deg);
+}
+
+@media (max-width: 760px) {
+  .results {
+    padding: 62px 25px 78px;
+  }
+  .folio-frame {
+    inset: 9px;
+    box-shadow:
+      inset 0 0 0 3px rgba(245, 238, 218, 0.48),
+      inset 0 0 0 4px rgba(143, 105, 58, 0.34),
+      inset 0 0 0 7px rgba(245, 238, 218, 0.18),
+      inset 0 0 0 8px rgba(143, 105, 58, 0.18);
+  }
+  .folio-corner {
+    width: 78px;
+    opacity: 0.52;
+  }
+  .folio-corner-tl {
+    top: -16px;
+    left: -16px;
+  }
+  .folio-corner-tr {
+    top: -16px;
+    right: -16px;
+  }
+  .folio-corner-br {
+    right: -16px;
+    bottom: -16px;
+  }
+  .folio-corner-bl {
+    bottom: -16px;
+    left: -16px;
+  }
+}
+
 .spread-group > h2 {
   font-style: normal;
 }
