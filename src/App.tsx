@@ -1362,6 +1362,7 @@ function InterpretationRitual({
       }`}
       aria-busy={!reading}
     >
+      <PageCorners />
       <div className="ritual-question">
         <span>◆ {zh ? "你的问题" : "YOUR QUESTION"} ◆</span>
         <h1 className="mystic-question">{question}</h1>
