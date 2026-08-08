@@ -1072,7 +1072,7 @@ main {
 }
 footer {
   height: 48px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--folio-line);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -2431,9 +2431,7 @@ html[lang="en"] .landing h1 {
 }
 .meaning p,
 .thread p,
-.reading-groups p,
-.reflection-close p,
-.reflection-close dd {
+.reading-groups p {
   font-family: var(--reading);
 }
 
@@ -2672,64 +2670,6 @@ html[lang="en"] .landing h1 {
   max-width: 820px;
   margin: 24px auto !important;
 }
-.reflection-close {
-  max-width: 1100px;
-  margin: 20px auto 0;
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  border: 1px solid var(--line);
-  background: rgba(250, 245, 232, 0.42);
-}
-.reflection-close > div {
-  padding: 42px;
-}
-.reflection-close > div + div {
-  border-left: 1px solid var(--line);
-}
-.reflection-close h2 {
-  font: 400 30px/1.3 var(--ritual);
-}
-.reflection-close p {
-  line-height: 1.75;
-  color: #465b58;
-}
-.reflection-close dl {
-  display: grid;
-  gap: 12px;
-}
-.reflection-close dl div {
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-}
-.reflection-close dt {
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-.reflection-close dd {
-  margin: 5px 0 0;
-}
-.reflection-close footer {
-  grid-column: 1/-1;
-  border-top: 1px solid var(--line);
-  padding: 22px 42px;
-  display: flex;
-  gap: 32px;
-  align-items: center;
-}
-.reflection-close footer span {
-  color: var(--terra);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.reflection-close footer p {
-  margin: 0;
-  font-size: 13px;
-}
-
 html[lang="zh-CN"] .landing h1,
 html[lang="zh-CN"] .context-folio h1,
 html[lang="zh-CN"] .shuffle-page h1,
@@ -2852,24 +2792,6 @@ html[lang="zh-CN"] .results h1 {
     border: 1px solid var(--line);
     padding: 10px 14px;
     z-index: 5;
-  }
-  .reflection-close {
-    grid-template-columns: 1fr;
-    margin-top: 40px;
-  }
-  .reflection-close > div {
-    padding: 28px 22px;
-  }
-  .reflection-close > div + div {
-    border-left: 0;
-    border-top: 1px solid var(--line);
-  }
-  .reflection-close footer {
-    display: block;
-    padding: 22px;
-  }
-  .reflection-close footer span {
-    white-space: normal;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3629,9 +3551,14 @@ html[lang="zh-CN"] .landing h1 {
     line-height: 1.5;
   }
   html[lang="zh-CN"] .results h1 {
-    font-size: 32px;
+    font-size: clamp(27px, 7.8vw, 30px);
     line-height: 1.42;
     letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  html[lang="zh-CN"] .info h1 {
+    font-size: clamp(29px, 8.5vw, 34px);
+    white-space: nowrap;
   }
 }
 
@@ -3685,7 +3612,6 @@ html[lang="zh-CN"] .landing h1 {
 .meaning h2,
 .meaning h3,
 .closing h2,
-.reflection-close h2,
 .info h1,
 .modal h2,
 .history-title h1,

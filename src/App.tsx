@@ -1550,54 +1550,6 @@ function Results({
           </article>
         ))}{" "}
       </div>{" "}
-      <section className="reflection-close">
-        <div>
-          <p className="eyebrow">
-            {locale === "zh-CN"
-              ? "假设与不确定性"
-              : "ASSUMPTIONS & UNCERTAINTY"}
-          </p>
-          {reading.assumptions?.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
-          <p>{reading.confidence.uncertainty}</p>
-        </div>
-        <div>
-          <p className="eyebrow">
-            {locale === "zh-CN" ? "可以落地的下一步" : "A PRACTICAL NEXT STEP"}
-          </p>
-          {reading.actionPlan?.map((item) => (
-            <article key={item.action}>
-              <h2>{item.action}</h2>
-              <p>{item.reason}</p>
-              <dl>
-                <div>
-                  <dt>{locale === "zh-CN" ? "时间" : "Timeframe"}</dt>
-                  <dd>{item.timeframe}</dd>
-                </div>
-                <div>
-                  <dt>
-                    {locale === "zh-CN" ? "观察信号" : "Observable signal"}
-                  </dt>
-                  <dd>{item.observableSignal}</dd>
-                </div>
-              </dl>
-            </article>
-          ))}
-        </div>
-        <footer>
-          <span>
-            {reading.generation?.mode === "ai"
-              ? locale === "zh-CN"
-                ? "结合语境生成"
-                : "Context-shaped reading"
-              : locale === "zh-CN"
-                ? "规则解读模式"
-                : "Rule-based reading"}
-          </span>
-          <p>{reading.safety}</p>
-        </footer>
-      </section>
     </section>
   );
 }
