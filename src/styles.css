@@ -798,6 +798,16 @@ main {
   background: rgba(250, 245, 232, 0.45);
   padding: 12px 18px;
 }
+@media (min-width: 761px) {
+  .result-head > .history-back {
+    margin-right: clamp(150px, 16vw, 170px);
+  }
+}
+@media (min-width: 1200px) {
+  .result-head > .history-back {
+    margin-right: 340px;
+  }
+}
 .overview {
   display: flex;
   justify-content: center;
@@ -3564,9 +3574,11 @@ html[lang="zh-CN"] .landing h1 {
     font-size: clamp(29px, 8.5vw, 34px);
     white-space: nowrap;
   }
-  html[lang="zh-CN"] .thread h2 {
-    font-family: var(--reading);
-  }
+}
+
+html[lang="zh-CN"] .thread h2,
+html[lang="zh-CN"] .meaning blockquote {
+  font-family: var(--reading);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1484,7 +1484,10 @@ function Results({
           </h1>{" "}
           <blockquote>“{question}”</blockquote>{" "}
         </div>{" "}
-        <button onClick={restart}>
+        <button
+          className={restartLabel ? "history-back" : undefined}
+          onClick={restart}
+        >
           {" "}
           {restartLabel || t("New reading")}{" "}
         </button>{" "}
