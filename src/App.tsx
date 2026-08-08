@@ -977,8 +977,16 @@ function Selection({
               : `CHOOSE ${total} ${total === 1 ? "CARD" : "CARDS"}`}{" "}
           </p>{" "}
           <h1>
-            {" "}
-            {t("Notice what")} <em>{t("draws you in.")}</em>{" "}
+            {locale === "zh-CN" ? (
+              <>
+                <span className="selection-title-line">留意哪张牌</span>
+                <em className="selection-title-line">吸引了你。</em>
+              </>
+            ) : (
+              <>
+                {t("Notice what")} <em>{t("draws you in.")}</em>
+              </>
+            )}
           </h1>{" "}
         </div>{" "}
         <strong>
@@ -1361,6 +1369,7 @@ function InterpretationRitual({
   skip: () => void;
 }) {
   const [showSkip, setShowSkip] = useState(false);
+  const [skipRequested, setSkipRequested] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => setShowSkip(true), 1500);
     return () => clearTimeout(timer);
@@ -1370,7 +1379,7 @@ function InterpretationRitual({
     <section
       className={`interpretation-ritual count-${cards.length} ${
         reading ? "is-ready" : ""
-      }`}
+      } ${skipRequested ? "is-skipped" : ""}`}
       aria-busy={!reading}
     >
       <div className="ritual-question">
@@ -1413,8 +1422,30 @@ function InterpretationRitual({
           )}
         </div>
       </div>
-      {showSkip && (
-        <button className="skip-ritual" onClick={skip}>
+      {skipRequested && !reading && (
+        <div className="ritual-skip-wait" role="status" aria-live="polite">
+          <img src="/assets/tarot-emblem.svg" alt="" aria-hidden="true" />
+          <span>{zh ? "正在完成解读" : "FINISHING YOUR READING"}</span>
+          <h2>
+            {zh
+              ? "仪式已跳过，解读仍在生成中……"
+              : "Ritual skipped. Your reading is still taking shape…"}
+          </h2>
+          <div className="quiet-lines" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </div>
+        </div>
+      )}
+      {showSkip && !skipRequested && (
+        <button
+          className="skip-ritual"
+          onClick={() => {
+            setSkipRequested(true);
+            skip();
+          }}
+        >
           {zh ? "跳过仪式" : "Skip ritual"} <b>›</b>
         </button>
       )}
