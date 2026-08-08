@@ -6,6 +6,9 @@
   --gold: #875b2d;
   --terra: #88472f;
   --line: rgba(44, 72, 66, 0.2);
+  --folio-fill: #eee9dc;
+  --folio-line: rgba(143, 105, 58, 0.58);
+  --folio-line-inner: rgba(143, 105, 58, 0.34);
   --display: "ZCOOL XiaoWei", "Noto Serif SC", serif;
   --body: "Noto Serif SC", serif;
   --brand: var(--display);
@@ -155,13 +158,9 @@ main {
   width: min(1360px, calc(100% - 56px));
   margin: 24px auto 48px;
   position: relative;
-  border: 1px solid rgba(143, 105, 58, 0.62);
-  box-shadow:
-    inset 0 0 0 7px rgba(245, 238, 218, 0.5),
-    inset 0 0 0 8px rgba(143, 105, 58, 0.36),
-    inset 0 0 0 13px rgba(245, 238, 218, 0.2),
-    inset 0 0 0 14px rgba(143, 105, 58, 0.2);
-  background-color: rgba(238, 233, 220, 0.52);
+  border: 1px solid var(--folio-line);
+  box-shadow: none;
+  background-color: var(--folio-fill);
   background-image:
     linear-gradient(rgba(248, 244, 231, 0.14), rgba(229, 234, 224, 0.1)),
     url("/assets/art/archival-linen-paper-v1.jpg");
@@ -174,6 +173,12 @@ main {
   z-index: 5;
   pointer-events: none;
   overflow: hidden;
+}
+.page-corners::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--folio-line-inner);
 }
 .page-corner {
   position: absolute;
@@ -3212,13 +3217,6 @@ html[lang="zh-CN"] .landing h1 {
 .interpretation-ritual::before {
   display: none;
 }
-.interpretation-ritual > .page-corners {
-  position: absolute;
-  inset: 0;
-  min-width: 0;
-  padding: 0;
-  border: 0;
-}
 .interpretation-ritual > .ritual-question,
 .interpretation-ritual > .ritual-tableau,
 .interpretation-ritual > .ritual-reading {
@@ -3623,7 +3621,14 @@ html[lang="zh-CN"] .landing h1 {
   font-family: var(--display);
 }
 
-/* Antique folio content spacing. The shared frame and flourishes live on main. */
+/* Antique folio content spacing. The shared frame, fill, and flourishes live on main. */
+.landing,
+.results,
+.interpretation-ritual,
+.ritual-reading {
+  background-color: transparent;
+  background-image: none;
+}
 .results {
   padding: clamp(82px, 7vw, 108px) clamp(58px, 6vw, 96px) 112px;
 }
@@ -3632,11 +3637,9 @@ html[lang="zh-CN"] .landing h1 {
   main {
     width: calc(100% - 18px);
     margin: 9px auto 24px;
-    box-shadow:
-      inset 0 0 0 3px rgba(245, 238, 218, 0.48),
-      inset 0 0 0 4px rgba(143, 105, 58, 0.34),
-      inset 0 0 0 7px rgba(245, 238, 218, 0.18),
-      inset 0 0 0 8px rgba(143, 105, 58, 0.18);
+  }
+  .page-corners::before {
+    inset: 5px;
   }
   .page-corner {
     width: 78px;
