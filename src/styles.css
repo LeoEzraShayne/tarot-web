@@ -3517,9 +3517,13 @@ html[lang="zh-CN"] .landing h1 {
     height: 28px;
   }
   .mode-result {
-    width: calc(100% - 20px);
-    margin: 20px auto 54px;
+    width: 100%;
+    margin: 20px 0 54px;
     padding: 30px 15px 20px;
+  }
+  .mode-result.count-1,
+  .mode-result.count-3 {
+    width: 100%;
   }
   .mode-result.count-6 .diagram-card-row,
   .mode-result.count-10 .diagram-card-row {
@@ -3559,6 +3563,9 @@ html[lang="zh-CN"] .landing h1 {
   html[lang="zh-CN"] .info h1 {
     font-size: clamp(29px, 8.5vw, 34px);
     white-space: nowrap;
+  }
+  html[lang="zh-CN"] .thread h2 {
+    font-family: var(--reading);
   }
 }
 
